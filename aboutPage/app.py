@@ -32,7 +32,7 @@ def aboutKurtis():
     return render_template('kurtis.html')
 
 @app.route('/about/Adeel', methods=['GET', 'POST'])
-def aboutAdeel():
+def aboutAdeel(): 
     return render_template('Adeel.html')
 
 
