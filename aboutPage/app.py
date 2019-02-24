@@ -12,9 +12,15 @@ def home():
 def about():
     return render_template('about.html')
 
+
 @app.route('/about/kim', methods=['GET', 'POST'])
 def aboutKim():
     return render_template('Kim.html')
+
+
+@app.route('/about/sushil', methods=['GET', 'POST'])
+def aboutSushil():
+    return render_template('sushil.html')
 
 
 ##Template copy the following three lines and make some changes:
@@ -27,9 +33,6 @@ def aboutKim():
 @app.route('/about/REPLACE_YOUR_NAME', methods=['GET', 'POST'])
 def aboutYOURNAME():
     return render_template('YOUR_NAME.html')
-
-
-
 
 
 if __name__ == "__main__":
