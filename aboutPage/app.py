@@ -13,6 +13,11 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/about/AmarisAboutMe', methods=['GET', 'POST'])
+def aboutAmarisAboutMe():
+    return render_template('AmarisAboutMe.html')
+
+
 @app.route('/about/kim', methods=['GET', 'POST'])
 def aboutKim():
     return render_template('Kim.html')
