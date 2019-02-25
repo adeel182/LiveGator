@@ -35,6 +35,9 @@ def aboutKurtis():
 def aboutAdeel(): 
     return render_template('Adeel.html')
 
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    return render_template('simon.html')
 
 ##Template copy the following three lines and make some changes:
 ##1. on first line, replace your name in the url; eg: '/about/kim'
