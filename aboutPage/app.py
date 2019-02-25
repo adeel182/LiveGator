@@ -35,7 +35,7 @@ def aboutKurtis():
 def aboutAdeel(): 
     return render_template('Adeel.html')
 
-@app.route('/about', methods=['GET', 'POST'])
+@app.route('/about/simon', methods=['GET', 'POST'])
 def about():
     return render_template('simon.html')
 
