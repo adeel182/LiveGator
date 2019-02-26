@@ -27,9 +27,9 @@ def aboutKim():
 def aboutSushil():
     return render_template('sushil.html')
 
-@app.route('/about/kurtis', methods=['GET', 'POST'])
+@app.route('/about/Kurtis', methods=['GET', 'POST'])
 def aboutKurtis():
-    return render_template('kurtis.html')
+    return render_template('Kurtis.html')
 
 @app.route('/about/Adeel', methods=['GET', 'POST'])
 def aboutAdeel():
