@@ -1,10 +1,22 @@
 from flask import Flask, request, flash, render_template, jsonify
+import mysql.connector
 
 app = Flask(__name__)
+conn = mysql.connector.connect(host = "localhost",
+                               port = 3306,
+                               user = 'DB USERNAME',
+                               password = 'DB PASSWORD',
+                               database = 'DB NAME',
+                               auth_plugin='mysql_native_password')
+cursor = conn.cursor()
+
 
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    # cursor.execute("SELECT * from test")
+    # data = cursor.fetchall()
+    # print(data)
     return render_template('home.html')
 
 
