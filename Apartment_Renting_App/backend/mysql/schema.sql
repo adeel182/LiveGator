@@ -8,10 +8,9 @@ CREATE TABLE USER
   username    VARCHAR(20) UNIQUE NOT NULL,
   password    VARCHAR(100) NOT NULL,
   email       VARCHAR(50),
-  phone       CHAR(15),
   role        INTEGER NOT NULL DEFAULT 1,
   isStudent   BOOLEAN,
-  isBanned    BOOLEAN
+  isBanned    BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE  LISTINGS
@@ -28,8 +27,15 @@ CREATE TABLE  LISTINGS
   state       CHAR(2),
   zipcode     CHAR(5),
   image_url   VARCHAR(500),
-  isAvailable BOOLEAN,
-  customer_id INT DEFAULT NULL,
+  isAvailable BOOLEAN DEFAULT TRUE,
+  create_date DATE
+);
+
+CREATE TABLE  ORDERS
+(
+  house_id    INT PRIMARY KEY AUTO_INCREMENT,
+  renter_id   INT NOT NULL REFERENCES USER(user_id),
+  customer_id INT NOT NULL REFERENCES USER(user_id),
   create_date DATE
 );
 
@@ -42,10 +48,12 @@ CREATE TABLE MESSAGE
 );
 
 
-INSERT INTO USER (username, password, email, phone, role, isStudent, isBanned) VALUES
-('kim', '123', 'kim@gmail.com', '123456789', 2, TRUE, FALSE),
-('alex', '123', 'alex@gmail.com', '123456789', 1, TRUE, FALSE),
-('sindy', '123', 'sindy@gmail.com', '123456789', 1, TRUE, FALSE);
+INSERT INTO USER (username, password, email, role, isStudent) VALUES
+('kim', '123', 'kim@gmail.com', 2, TRUE),
+('alex', '123', 'alex@gmail.com', 1, TRUE),
+('sindy', '123', 'sindy@gmail.com', 1, TRUE),
+('daniel', '123', 'daniel@gmail.com', 1, TRUE);
+
 
 
 INSERT INTO LISTINGS (renter_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url, isAvailable, create_date) VALUES

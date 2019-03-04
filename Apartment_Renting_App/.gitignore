@@ -16,3 +16,5 @@ var/
 .installed.cfg
 *.egg
 venv
+.idea
+.DS_Store

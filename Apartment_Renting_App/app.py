@@ -1,22 +1,38 @@
-from flask import Flask, request, flash, render_template, jsonify
-from backend.APIs import user
+import os
+from flask import Flask, session, request, flash, redirect, render_template
+from flask_login import LoginManager
+from backend.views.user import user_endpoints
+from backend.models.user import User
+from flask_login import login_user, logout_user , current_user , login_required
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
+app.register_blueprint(user_endpoints)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+login_manager.login_view = '/login'
+
+@login_manager.user_loader
+def load_user(id):
+    return User(id)
 
 
 
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    flash('Logged in successfully')
+
     # cursor.execute("SELECT * from test")
     # data = cursor.fetchall()
     # print(data)
-    data = user.addUser()
-    print(data)
     return render_template('home.html')
 
 
 @app.route('/about', methods=['GET', 'POST'])
+@login_required
 def about():
     return render_template('about.html')
 
