@@ -1,23 +1,41 @@
 import os
 from flask import Flask, session, request, flash, redirect, render_template
-from flask_login import LoginManager
+from flask_login import LoginManager, login_required
+from werkzeug.routing import Map, Rule, NotFound, RequestRedirect
 from backend.views.user import user_endpoints
+from backend.views.listings import listing_endpoints
+from backend.views.dashboard import dashboard_endpoints
+from backend.views.orders import order_endpoints
 from backend.models.user import User
-from flask_login import login_user, logout_user , current_user , login_required
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 app.register_blueprint(user_endpoints)
+app.register_blueprint(listing_endpoints)
+app.register_blueprint(dashboard_endpoints)
+app.register_blueprint(order_endpoints)
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-
 login_manager.login_view = '/login'
-
 @login_manager.user_loader
 def load_user(id):
     return User(id)
 
+
+
+# url_map = Map([
+#     Rule('/', endpoint='blog/index'),
+#     Rule('/<int:house_id>/', endpoint='all_listings/'),
+#     Rule('/<int:year>/<int:month>/', endpoint='blog/archive'),
+#     Rule('/<int:year>/<int:month>/<int:day>/', endpoint='blog/archive'),
+#     Rule('/<int:year>/<int:month>/<int:day>/<slug>',
+#          endpoint='blog/show_post'),
+#     Rule('/about', endpoint='blog/about_me'),
+#     Rule('/feeds/', endpoint='blog/feeds'),
+#     Rule('/feeds/<feed_name>.rss', endpoint='blog/show_feed')
+# ])
 
 
 

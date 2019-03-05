@@ -31,7 +31,7 @@ def login():
         return redirect('/login')
     print(user_query)
     hashed_pwd = user_query[2]
-    print(hashed_pwd)
+    # print(hashed_pwd)
     if not check_password_hash(hashed_pwd, password):
         print("invalid password")
         flash('Password is invalid', 'error')
@@ -39,7 +39,7 @@ def login():
     user_found = User(user_query[0])
     login_user(user_found)
     flash('Logged in successfully')
-    print("success")
+    print("Logged in successfully")
     return redirect(request.args.get('next') or '/')
 
 

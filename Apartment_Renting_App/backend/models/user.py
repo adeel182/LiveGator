@@ -9,10 +9,6 @@ def login(username):
     return DButils.login(username)
 
 
-def login2(username, pas):
-    return DButils.login2(username, pas)
-
-
 def signup(username, password, email, isStudent):
     DButils.signup(username, password, email, isStudent)
 
