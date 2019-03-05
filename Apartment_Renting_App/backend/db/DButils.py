@@ -1,10 +1,10 @@
 from ..db.connection import conn, cursor
 
 #user
-def get_user(user_id):
-    sql_str = "SELECT * from USER WHERE user_id = %s"
-    cursor.execute(sql_str, (user_id, ))
-    return cursor.fetchall()
+def get_user(role, parameter):
+    sql_str = "SELECT * from USER WHERE {} = %s".format(role)
+    cursor.execute(sql_str, (parameter, ))
+    return cursor.fetchone()
 
 def login(username):
     sql_str = "SELECT * from USER WHERE username = %s"
@@ -50,17 +50,16 @@ def delete_listing(house_id):
 
 #order
 def get_orders_by_id(role, user_id):
-    sql_str = "SELECT * from ORDERS WHERE %s = %s ORDER BY create_date"
-    print(sql_str, (role, user_id))
-    cursor.execute(sql_str, (role, user_id))
-    print(cursor.fetchall())
-    return cursor.fetchall()
-
-
-def get_orders_by_customerid(user_id):
-    sql_str = "SELECT * from ORDERS WHERE customer_id = %s ORDER BY create_date"
+    sql_str = "SELECT * from ORDERS WHERE {} = %s ORDER BY create_date".format(role)
+    # print(sql_str, (user_id, ))
     cursor.execute(sql_str, (user_id, ))
     return cursor.fetchall()
+
+
+# def get_orders_by_customerid(user_id):
+#     sql_str = "SELECT * from ORDERS WHERE customer_id = %s ORDER BY create_date"
+#     cursor.execute(sql_str, (user_id, ))
+#     return cursor.fetchall()
 
 
 def place_order(house_id, renter_id, customer_id):
@@ -72,5 +71,28 @@ def place_order(house_id, renter_id, customer_id):
         conn.commit()
     except:
         conn.rollback()
+
+#message
+
+def get_all_msg_by_id(role, user_id):
+    sql_str = "SELECT * from MESSAGE WHERE {} = %s ORDER BY date".format(role)
+    # print(sql_str, (user_id, ))
+    cursor.execute(sql_str, (user_id,))
+    return cursor.fetchall()
+
+
+def get_msg_detail(renter_id, customer_id):
+    sql_str = "SELECT * from MESSAGE WHERE renter_id = %s AND customer_id = %s ORDER BY date"
+    cursor.execute(sql_str, (renter_id, customer_id))
+    return cursor.fetchall()
+
+
+def send_msg(renter_id, customer_id, msg):
+    sql_str = "INSERT INTO MESSAGE (renter_id, customer_id, message, date) VALUES (%s, %s, %s, NOW())"
+    cursor.execute(sql_str, (renter_id, customer_id, msg))
+    conn.commit()
+
+
+
 
 

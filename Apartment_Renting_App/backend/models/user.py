@@ -1,8 +1,12 @@
 from ..db import DButils
 
 
-def get_user(userid):
-    return DButils.get_user(userid)
+def get_user_by_id(user_id):
+    return DButils.get_user("user_id", user_id)
+
+
+def get_user_by_username(username):
+    return DButils.get_user("username", username)
 
 
 def login(username):

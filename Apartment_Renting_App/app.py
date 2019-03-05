@@ -6,7 +6,10 @@ from backend.views.user import user_endpoints
 from backend.views.listings import listing_endpoints
 from backend.views.dashboard import dashboard_endpoints
 from backend.views.orders import order_endpoints
+from backend.views.message import message_endpoints
+
 from backend.models.user import User
+
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -14,6 +17,7 @@ app.register_blueprint(user_endpoints)
 app.register_blueprint(listing_endpoints)
 app.register_blueprint(dashboard_endpoints)
 app.register_blueprint(order_endpoints)
+app.register_blueprint(message_endpoints)
 
 
 login_manager = LoginManager()
