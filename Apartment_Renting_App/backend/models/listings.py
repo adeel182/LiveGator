@@ -1,8 +1,12 @@
 from ..db import DButils
 
 
-def get_all_listings():
-    return DButils.get_all_listings()
+def get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, sort, search_key):
+
+
+    # listings = DButils.get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high)
+
+    return DButils.get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high)
 
 
 def get_listings_by_userid(user_id):

@@ -19,10 +19,25 @@ def signup(username, password, email, isStudent):
 
 
 #listing
-def get_all_listings():
-    sql_str = "SELECT * from LISTINGS WHERE isAvailable = TRUE ORDER BY create_date"
+def get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high):
+    sql_str = "SELECT * from LISTINGS WHERE isAvailable = TRUE"
+    if price_low is not -1:
+        sql_str = sql_str + " AND price >= {}".format(price_low)
+    if price_high is not -1:
+        sql_str = sql_str + " AND price <= {}".format(price_high)
+    if size_low is not -1:
+        sql_str = sql_str + " AND size >= {}".format(size_low)
+    if size_high is not -1:
+        sql_str = sql_str + " AND size <= {}".format(size_high)
+    if distance_low is not -1:
+        sql_str = sql_str + " AND distance >= {}".format(distance_low)
+    if distance_high is not -1:
+        sql_str = sql_str + " AND distance <= {}".format(distance_high)
+    sql_str = sql_str + " ORDER BY create_date"
+    print(sql_str)
     cursor.execute(sql_str)
     return cursor.fetchall()
+
 
 def get_listings_by_userid(user_id):
     sql_str = "SELECT * from LISTINGS WHERE renter_id = %s AND isAvailable = TRUE ORDER BY create_date"

@@ -9,8 +9,18 @@ listing_endpoints = Blueprint('listing_endpoints', __name__)
 
 
 @listing_endpoints.route('/all_listings', methods=['GET'])
+#1. sort by price, by size, by distance, by listing date
+#2. filter by price, size, distance
 def display_all_listings():
-    return jsonify(listings.get_all_listings())
+    price_low = request.args.get("price_low", -1)
+    price_high = request.args.get("price_high", -1)
+    size_low = request.args.get("size_low", -1)
+    size_high = request.args.get("size_high", -1)
+    distance_low = request.args.get("distance_low", -1)
+    distance_high = request.args.get("distance_high", -1)
+    sort = request.args.get("sort", 0)
+    search_key = request.args.get("search_key", "")
+    return jsonify(listings.get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, sort, search_key))
 
 
 @listing_endpoints.route('/all_listings/<house_id>', methods=['GET'])
