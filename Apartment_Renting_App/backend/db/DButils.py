@@ -34,7 +34,7 @@ def get_all_listings(price_low, price_high, size_low, size_high, distance_low, d
     if distance_high is not -1:
         sql_str = sql_str + " AND distance <= {}".format(distance_high)
     sql_str = sql_str + " ORDER BY create_date"
-    print(sql_str)
+    # print(sql_str)
     cursor.execute(sql_str)
     return cursor.fetchall()
 

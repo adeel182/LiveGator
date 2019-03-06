@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f719d207-fe78-4b20-8ddd-f319045f529b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Apartment_Renting_App.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Apartment_Renting_App.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db/DButils.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/DButils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/listings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/listings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/views/listings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/listings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +14,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__backend_app_py_.coverage" NAME="Flask (backend/app.py) Coverage Results" MODIFIED="1551680440387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1551892255747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1551897161457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -50,18 +50,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/views/dashboard.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#0#86#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/mysql/schema.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="900">
@@ -73,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/db/DButils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="252">
+              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -88,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -101,10 +89,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/models/listings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="92" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="92" />
+            <state relative-caret-position="105">
+              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -121,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/views/listings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="22" column="44" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="44" />
+            <state relative-caret-position="165">
+              <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -188,11 +185,11 @@
         <option value="$PROJECT_DIR$/backend/views/dashboard.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/templates/customer_dashboard.html" />
-        <option value="$PROJECT_DIR$/backend/views/listings.py" />
-        <option value="$PROJECT_DIR$/backend/models/listings.py" />
-        <option value="$PROJECT_DIR$/backend/db/DButils.py" />
         <option value="$PROJECT_DIR$/backend/db/connection.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/backend/db/DButils.py" />
+        <option value="$PROJECT_DIR$/backend/views/listings.py" />
+        <option value="$PROJECT_DIR$/backend/models/listings.py" />
       </list>
     </option>
   </component>
@@ -229,7 +226,19 @@
               <item name="Apartment_Renting_App" type="b2602c69:ProjectViewProjectNode" />
               <item name="Apartment_Renting_App" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Apartment_Renting_App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Apartment_Renting_App" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
               <item name="mysql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Apartment_Renting_App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Apartment_Renting_App" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -324,23 +333,23 @@
       <updated>1551525674459</updated>
       <workItem from="1551525683773" duration="5565000" />
       <workItem from="1551669643391" duration="45667000" />
-      <workItem from="1551891669423" duration="1958000" />
+      <workItem from="1551891669423" duration="5345000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53190000" />
+    <option name="totallyTimeSpent" value="56577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1434" height="792" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22701149" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22701149" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36126372" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36126372" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -349,7 +358,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49878147" visible="true" weight="0.32692307" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49878147" weight="0.32692307" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5012185" side_tool="true" weight="0.32868218" />
       <window_info anchor="bottom" id="Python Console" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -395,13 +404,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/mysql/connector/connection_cext.py" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/Flask_Login-0.2.7-py3.5.egg-info/dependency_links.txt" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/Flask_Login-0.2.7-py3.5.egg-info/installed-files.txt" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/Flask_Login-0.2.7-py3.5.egg-info/not-zip-safe" />
@@ -539,24 +541,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/listings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="92" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/customer_dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views/listings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -570,17 +558,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/db/connection.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/db/DButils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -594,13 +592,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/backend/views/listings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/db/DButils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models/listings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>

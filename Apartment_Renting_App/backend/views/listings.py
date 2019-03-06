@@ -19,6 +19,10 @@ def display_all_listings():
     distance_low = request.args.get("distance_low", -1)
     distance_high = request.args.get("distance_high", -1)
     sort = request.args.get("sort", 0)
+    #0: date latest first
+    #1: price low to high    2: price high to low
+    #3: size low to high    4: size high to low
+    #5: distance low to high    6: distance high to low
     search_key = request.args.get("search_key", "")
     return jsonify(listings.get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, sort, search_key))
 
