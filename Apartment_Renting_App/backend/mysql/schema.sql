@@ -18,6 +18,7 @@ CREATE TABLE  LISTINGS
   house_id    INT PRIMARY KEY AUTO_INCREMENT,
   renter_id   INT NOT NULL REFERENCES USER(user_id),
   house_name  VARCHAR(100),
+  description VARCHAR(1000),
   price       INT,
   size        INT,
   distance    FLOAT,
@@ -52,13 +53,14 @@ INSERT INTO USER (username, password, email, role, isStudent) VALUES
 ('kim', '123', 'kim@gmail.com', 2, TRUE),
 ('alex', '123', 'alex@gmail.com', 1, TRUE),
 ('sindy', '123', 'sindy@gmail.com', 1, TRUE),
-('daniel', '123', 'daniel@gmail.com', 1, TRUE);
+('daniel', 'pbkdf2:sha256:50000$AmTDRb0B$4a5816a363e041c03fa8016ca63799c1e3cba32ab1cda9f260f0b26262c09423', 'daniel@gmail.com', 1, TRUE);
 
 
 
-INSERT INTO LISTINGS (renter_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url, isAvailable, create_date) VALUES
-(2, 'Foster', 1200, 500, 15.4, 861, 'Sanbarra st', 'Foster City', 'CA', 94404, 'https://photos.zillowstatic.com/cc_ft_1536/ISmmvxzrdz55h91000000000.webp', TRUE, NOW()),
-(3, 'South SF', 1000, 300, 2.4, 181, 'Fremont st', 'San Francisco', 'CA', 94105, 'https://djs00nylhf7co.cloudfront.net/assets/img--gallery-interior-52_lg-277eb7b2a425cc901979eb40c134e9b4e3ffe13041dad29d15ec41a4ac35e1b9.jpg', TRUE, NOW());
+INSERT INTO LISTINGS (renter_id, house_name, description, price, size, distance, number, street, city, state, zipcode, image_url, isAvailable, create_date) VALUES
+(2, 'Foster', 'This is my fantastic house in foster city',1200, 500, 15.4, 861, 'Sanbarra st', 'Foster City', 'CA', 94404, 'https://photos.zillowstatic.com/cc_ft_1536/ISmmvxzrdz55h91000000000.webp', TRUE, NOW()),
+(4, 'South SF', 'Beautiful brand new house in South SF with spacious bedroom', 1000, 300, 2.4, 181, 'Fremont st', 'San Francisco', 'CA', 94105, 'https://djs00nylhf7co.cloudfront.net/assets/img--gallery-interior-52_lg-277eb7b2a425cc901979eb40c134e9b4e3ffe13041dad29d15ec41a4ac35e1b9.jpg', TRUE, NOW()),
+(4, 'Downtown SF', 'Room at the heat of SF', 1500, 500, 8, 201, 'Van Ness Ave', 'San Francisco', 'CA', 94102, 'https://www.sfsymphony.org/SanFranciscoSymphony/media/Press-Releases/Davies%20Hall/DSH-night.jpg?width=3149&height=2099&ext=.jpg', TRUE, NOW());
 
 
 
