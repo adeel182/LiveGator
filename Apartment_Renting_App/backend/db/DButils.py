@@ -102,9 +102,9 @@ def get_msg_detail(renter_id, customer_id):
     return cursor.fetchall()
 
 
-def send_msg(renter_id, customer_id, msg):
-    sql_str = "INSERT INTO MESSAGE (renter_id, customer_id, message, date) VALUES (%s, %s, %s, NOW())"
-    cursor.execute(sql_str, (renter_id, customer_id, msg))
+def send_msg(renter_id, customer_id, sender, msg):
+    sql_str = "INSERT INTO MESSAGE (renter_id, customer_id, sender, message, date) VALUES (%s, %s, %s, %s, NOW())"
+    cursor.execute(sql_str, (renter_id, customer_id, sender, msg))
     conn.commit()
 
 

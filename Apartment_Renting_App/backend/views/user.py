@@ -60,7 +60,8 @@ def signup():
     return redirect('/login')
 
 
-@user_endpoints.route('/logout')
+@user_endpoints.route('/logout', methods=['POST'])
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('index'))

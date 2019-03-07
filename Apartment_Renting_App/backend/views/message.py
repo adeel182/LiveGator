@@ -44,42 +44,47 @@ def renter_view_msg_detail(username):
 
 @message_endpoints.route('/send_direct_msg', methods=['POST'])
 @login_required
-def send_direct_msg(house_id):
+def send_direct_msg():
     customer_id = current_user.user_id
+    customer_username = user.get_user_by_id(customer_id)[1]
+    house_id = request.form["house_id"]
     contact_house = listings.get_listing_by_houseid(house_id)
     renter_id = contact_house[1]
     msg_to_send = request.form["message"]
-    return send_msg(renter_id, customer_id, msg_to_send)
+    return send_msg(renter_id, customer_id, customer_username, msg_to_send)
 
 
 @message_endpoints.route('/customer_dashboard/view_msg/<username>/send_msg', methods=['POST'])
 @login_required
 def customer_send_msg(username):
     customer_id = current_user.user_id
+    customer_username = user.get_user_by_id(customer_id)[1]
     renter = user.get_user_by_username(username)
     renter_id = renter[0]
     msg_to_send = request.form["message"]
-    return send_msg(renter_id, customer_id, msg_to_send)
+    return send_msg(renter_id, customer_id, customer_username, msg_to_send)
 
 
 @message_endpoints.route('/renter_dashboard/view_msg/<username>/send_msg', methods=['POST'])
 @login_required
 def renter_send_msg(username):
     renter_id = current_user.user_id
+    renter_username = user.get_user_by_id(renter_id)[1]
     customer = user.get_user_by_username(username)
     customer_id = customer[0]
     msg_to_send = request.form["message"]
-    return send_msg(renter_id, customer_id, msg_to_send)
+    return send_msg(renter_id, customer_id, renter_username, msg_to_send)
 
 
-def send_msg(renter_id, customer_id, msg_to_send):
-    if customer_id == renter_id:
+def send_msg(renter_id, customer_id, sender, msg_to_send):
+    # print(type(renter_id))
+    if customer_id is renter_id:
         return make_response(jsonify({'code': '400',
                                       'msg': 'You cannot send message to yourself'}), 400)
     try:
-        message.send_msg(renter_id, customer_id)
+        print("renter:", renter_id, "customer:", customer_id)
+        message.send_msg(renter_id, customer_id, sender, msg_to_send)
     except:
         return make_response(jsonify({'code': '400',
                                       'msg': 'Msg failed, please try again'}), 400)
-    message.send_msg(renter_id, customer_id, msg_to_send)
     return jsonify("msg send", msg_to_send)
