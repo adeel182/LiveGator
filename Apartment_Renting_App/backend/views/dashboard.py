@@ -8,10 +8,12 @@ dashboard_endpoints = Blueprint('dashboard_endpoints', __name__)
 
 
 @dashboard_endpoints.route('/customer_dashboard', methods=['GET'])
+@login_required
 def customer_dashboard():
     return render_template('customer_dashboard.html')
 
 
 @dashboard_endpoints.route('/renter_dashboard', methods=['GET'])
+@login_required
 def renter_dashboard():
     return render_template('renter_dashboard.html')
