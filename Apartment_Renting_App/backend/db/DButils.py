@@ -108,6 +108,20 @@ def send_msg(renter_id, customer_id, sender, msg):
     conn.commit()
 
 
+#admin
+def approve_new_listing(house_id):
+    sql_str = "UPDATE LISTINGS SET approved = 1 WHERE house_id = %s"
+    cursor.execute(sql_str, (house_id, ))
+    conn.commit()
 
 
+def block_user(user_id):
+    sql_str = "UPDATE USER SET isBanned = 1 WHERE user_id = %s"
+    cursor.execute(sql_str, (user_id,))
+    conn.commit()
 
+
+def get_all_to_approve():
+    sql_str = "SELECT * from LISTINGS WHERE approved = false ORDER BY create_date"
+    cursor.execute(sql_str,)
+    conn.commit()

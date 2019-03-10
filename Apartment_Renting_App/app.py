@@ -1,7 +1,8 @@
 import os
 from flask import Flask, session, request, flash, redirect, render_template
 from flask_login import LoginManager, login_required
-from werkzeug.routing import Map, Rule, NotFound, RequestRedirect
+from flask_restful import Api
+from flask_restful_swagger import swagger
 from backend.views.user import user_endpoints
 from backend.views.listings import listing_endpoints
 from backend.views.about_page import about_page_endpoints
@@ -29,6 +30,8 @@ login_manager.login_view = '/login'
 def load_user(id):
     return User(id)
 
+# Wrap the Api with swagger.docs. It is a thin wrapper around the Api class that adds some swagger smarts
+api = swagger.docs(Api(app), apiVersion='0.1')
 
 
 # url_map = Map([

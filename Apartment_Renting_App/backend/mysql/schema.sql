@@ -30,7 +30,8 @@ CREATE TABLE  LISTINGS
   zipcode     CHAR(5),
   image_url   VARCHAR(500),
   isAvailable BOOLEAN DEFAULT TRUE,
-  create_date DATE
+  create_date DATE,
+  approved    BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE  ORDERS
