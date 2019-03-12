@@ -1,5 +1,5 @@
 import os
-from flask import Flask, session, request, flash, redirect, render_template
+from flask import Flask, session, request, flash, redirect, render_template, url_for
 from flask_login import LoginManager, login_required
 from flask_restful import Api
 from flask_restful_swagger import swagger
@@ -8,8 +8,8 @@ from backend.views.listings import listing_endpoints
 from backend.views.about_page import about_page_endpoints
 from backend.views.dashboard import dashboard_endpoints
 from backend.views.orders import order_endpoints
+from backend.views.admin import admin_endpoints
 from backend.views.message import message_endpoints
-
 from backend.models.user import User
 
 
@@ -21,6 +21,7 @@ app.register_blueprint(about_page_endpoints)
 app.register_blueprint(dashboard_endpoints)
 app.register_blueprint(order_endpoints)
 app.register_blueprint(message_endpoints)
+app.register_blueprint(admin_endpoints)
 
 
 login_manager = LoginManager()
@@ -30,21 +31,6 @@ login_manager.login_view = '/login'
 def load_user(id):
     return User(id)
 
-# Wrap the Api with swagger.docs. It is a thin wrapper around the Api class that adds some swagger smarts
-api = swagger.docs(Api(app), apiVersion='0.1')
-
-
-# url_map = Map([
-#     Rule('/', endpoint='blog/index'),
-#     Rule('/<int:house_id>/', endpoint='all_listings/'),
-#     Rule('/<int:year>/<int:month>/', endpoint='blog/archive'),
-#     Rule('/<int:year>/<int:month>/<int:day>/', endpoint='blog/archive'),
-#     Rule('/<int:year>/<int:month>/<int:day>/<slug>',
-#          endpoint='blog/show_post'),
-#     Rule('/about', endpoint='blog/about_me'),
-#     Rule('/feeds/', endpoint='blog/feeds'),
-#     Rule('/feeds/<feed_name>.rss', endpoint='blog/show_feed')
-# ])
 
 
 

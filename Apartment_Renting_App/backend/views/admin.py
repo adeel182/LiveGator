@@ -17,7 +17,7 @@ def get_all_to_approve():
     return admin.get_all_to_approve()
 
 
-@admin_endpoints.route('/get_all_to_approve/<house_id>', methods=['POST'])
+@admin_endpoints.route('/approve_new_listing/<house_id>', methods=['POST'])
 @login_required
 def approve_new_listing(house_id):
     if current_user.role is not 2:
