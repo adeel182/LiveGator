@@ -16,7 +16,7 @@ CREATE TABLE USER
 CREATE TABLE  LISTINGS
 (
   house_id    INT PRIMARY KEY AUTO_INCREMENT,
-  renter_id   INT NOT NULL REFERENCES USER(user_id),
+  landlord_id   INT NOT NULL REFERENCES USER(user_id),
   house_name  VARCHAR(100),
   type        VARCHAR(100),
   description VARCHAR(1000),
@@ -40,14 +40,14 @@ CREATE TABLE  LISTINGS
 CREATE TABLE  ORDERS
 (
   house_id    INT PRIMARY KEY AUTO_INCREMENT,
-  renter_id   INT NOT NULL REFERENCES USER(user_id),
+  landlord_id   INT NOT NULL REFERENCES USER(user_id),
   customer_id INT NOT NULL REFERENCES USER(user_id),
   create_date DATE
 );
 
 CREATE TABLE MESSAGE
 (
-  renter_id   INT NOT NULL REFERENCES USER(user_id),
+  landlord_id   INT NOT NULL REFERENCES USER(user_id),
   customer_id INT NOT NULL REFERENCES USER(user_id),
   sender      VARCHAR(100) NOT NULL REFERENCES USER(username),
   message     VARCHAR(500),
@@ -63,7 +63,7 @@ INSERT INTO USER (username, password, email, role, isStudent) VALUES
 
 
 
-INSERT INTO LISTINGS (renter_id, house_name, type, description, price, size, distance, number, street, city, state, zipcode, image_url, bedroom_count, bathroom_count, parking_count, create_date) VALUES
+INSERT INTO LISTINGS (landlord_id, house_name, type, description, price, size, distance, number, street, city, state, zipcode, image_url, bedroom_count, bathroom_count, parking_count, create_date) VALUES
 (2, 'Foster', 'House','This is my fantastic house in foster city',1200, 500, 15.4, 861, 'Sanbarra st', 'Foster City', 'CA', 94404, 'https://photos.zillowstatic.com/cc_ft_1536/ISmmvxzrdz55h91000000000.webp', 2, 2, 2, NOW()),
 (4, 'South SF', 'Apartment','Beautiful brand new house in South SF with spacious bedroom', 1000, 300, 2.4, 181, 'Fremont st', 'San Francisco', 'CA', 94105, 'https://djs00nylhf7co.cloudfront.net/assets/img--gallery-interior-52_lg-277eb7b2a425cc901979eb40c134e9b4e3ffe13041dad29d15ec41a4ac35e1b9.jpg', 1, 1, 1, NOW()),
 (4, 'Downtown SF', 'Condo','Room at the heat of SF', 1500, 500, 8, 201, 'Van Ness Ave', 'San Francisco', 'CA', 94102, 'https://www.sfsymphony.org/SanFranciscoSymphony/media/Press-Releases/Davies%20Hall/DSH-night.jpg?width=3149&height=2099&ext=.jpg', 2, 1.5, 2, NOW());

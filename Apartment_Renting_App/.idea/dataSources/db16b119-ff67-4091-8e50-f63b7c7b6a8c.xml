@@ -1118,7 +1118,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="278" name="renter_id">
+    <column id="283" parent="278" name="landlord_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1221,7 +1221,7 @@
       <ColNames>house_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="303" parent="279" name="renter_id">
+    <column id="303" parent="279" name="landlord_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1256,7 +1256,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="280" name="renter_id">
+    <column id="309" parent="280" name="landlord_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>

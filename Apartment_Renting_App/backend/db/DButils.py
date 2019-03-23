@@ -40,7 +40,7 @@ def get_all_listings(price_low, price_high, size_low, size_high, distance_low, d
 
 
 def get_listings_by_userid(user_id):
-    sql_str = "SELECT * from LISTINGS WHERE renter_id = %s AND isAvailable = TRUE ORDER BY create_date"
+    sql_str = "SELECT * from LISTINGS WHERE landlord_id = %s AND isAvailable = TRUE ORDER BY create_date"
     cursor.execute(sql_str, (user_id, ))
     return cursor.fetchall()
 
@@ -52,7 +52,7 @@ def get_listing_by_houseid(house_id):
 
 
 def create_new_listing(user_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url):
-    sql_str = "INSERT INTO LISTINGS (renter_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    sql_str = "INSERT INTO LISTINGS (landlord_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor.execute(sql_str, (user_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url))
     conn.commit()
 
@@ -79,7 +79,7 @@ def get_orders_by_id(role, user_id):
 
 def place_order(house_id, renter_id, customer_id):
     try:
-        sql_str_order = "INSERT INTO ORDERS (house_id, renter_id, customer_id, create_date) VALUES (%s, %s, %s, NOW())"
+        sql_str_order = "INSERT INTO ORDERS (house_id, landlord_id, customer_id, create_date) VALUES (%s, %s, %s, NOW())"
         cursor.execute(sql_str_order, (house_id, renter_id, customer_id))
         sql_str_listings = "UPDATE LISTINGS SET isAvailable = %s WHERE house_id = %s"
         cursor.execute(sql_str_listings, (0, house_id))
@@ -97,13 +97,13 @@ def get_all_msg_by_id(role, user_id):
 
 
 def get_msg_detail(renter_id, customer_id):
-    sql_str = "SELECT * from MESSAGE WHERE renter_id = %s AND customer_id = %s ORDER BY date"
+    sql_str = "SELECT * from MESSAGE WHERE landlord_id = %s AND customer_id = %s ORDER BY date"
     cursor.execute(sql_str, (renter_id, customer_id))
     return cursor.fetchall()
 
 
 def send_msg(renter_id, customer_id, sender, msg):
-    sql_str = "INSERT INTO MESSAGE (renter_id, customer_id, sender, message, date) VALUES (%s, %s, %s, %s, NOW())"
+    sql_str = "INSERT INTO MESSAGE (landlord_id, customer_id, sender, message, date) VALUES (%s, %s, %s, %s, NOW())"
     cursor.execute(sql_str, (renter_id, customer_id, sender, msg))
     conn.commit()
 
