@@ -1,6 +1,5 @@
 from ..db.connection import conn, cursor
 
-
 #user
 def get_user(role, parameter):
     sql_str = "SELECT * from USER WHERE {} = %s".format(role)

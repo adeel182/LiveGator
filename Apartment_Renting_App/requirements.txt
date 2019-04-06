@@ -2,6 +2,7 @@ aniso8601==6.0.0
 Click==7.0
 Flask==1.0.2
 Flask-Login==0.2.7
+Flask-MySQL==1.4.0
 Flask-RESTful==0.3.7
 flask-restful-swagger==0.20.1
 Flask-SQLAlchemy==1.0
@@ -10,6 +11,7 @@ Jinja2==2.10
 MarkupSafe==1.1.1
 mysql-connector-python==8.0.15
 protobuf==3.6.1
+PyMySQL==0.9.3
 pytz==2018.9
 six==1.12.0
 SQLAlchemy==0.8.2
