@@ -24,7 +24,17 @@ def display_all_listings():
     #3: size low to high    4: size high to low
     #5: distance low to high    6: distance high to low
     search_key = request.args.get("search_key", "")
-    return jsonify(listings.get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, sort, search_key))
+    data = listings.get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, sort, search_key)
+    print(data)
+    result = []
+    for d in data:
+        js = {
+            "house_id" : d[0],"landlord_id" : d[1], "house_name" : d[2], "type" : d[3], "description" : d[4], "price": d[5], "size" : d[6],
+            "distance" : d[7], "number" : d[8], "street" : d[9], "city" : d[10], "state" : d[11], "zipcode" : d[12],
+            'image_url' : d[13], "bedroom_count" : d[14], "bathroom_count" : d[15], "parking_count" : d[16], "create_date" : d[17]}
+        result.append(js)
+    print(result)
+    return result
 
 
 @listing_endpoints.route('/all_listings/<house_id>', methods=['GET'])

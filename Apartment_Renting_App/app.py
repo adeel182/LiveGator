@@ -1,6 +1,6 @@
 import os
 from flask import Flask, session, request, flash, redirect, render_template, url_for
-from flask_login import LoginManager, login_required
+from flask_login import LoginManager, login_required, current_user
 from flask_restful import Api
 from flask_restful_swagger import swagger
 from backend.views.user import user_endpoints
@@ -11,6 +11,8 @@ from backend.views.orders import order_endpoints
 from backend.views.admin import admin_endpoints
 from backend.views.message import message_endpoints
 from backend.models.user import User
+from backend.views import listings
+
 
 
 app = Flask(__name__)
@@ -43,6 +45,17 @@ def home():
     # print(data)
     return render_template('home.html')
 
+@app.route("/search", methods=['GET', 'POST'])
+def search():
+
+    # cursor.execute("SELECT * from test")
+    # data = cursor.fetchall()
+    # print(data)
+
+    # key = first_name = request.args.get("firstname")
+    #
+    data = listings.display_all_listings()
+    return render_template('search.html', data = data)
 
 
 if __name__ == "__main__":

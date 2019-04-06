@@ -2,7 +2,7 @@ from ..db import DButils
 
 
 def get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, sort, search_key):
-    listings = DButils.get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high)
+    listings = DButils.get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, search_key)
     # print(listings)
     # print(listings[0][3])
     # print(sort)
