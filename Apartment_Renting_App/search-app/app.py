@@ -54,7 +54,8 @@ def search():
         book = request.form['book']
         # search by author or book
         # cursor.execute("SELECT name, author from Team13_DBinstance.Book WHERE name LIKE %s OR author LIKE %s", (book, book))
-        cursor.execute("SELECT name, author from Team13_DBinstance.Book WHERE name LIKE %s OR author LIKE %s", (book, book))
+        cursor.execute("SELECT name, author from Book WHERE name LIKE %s", ("%" + book + "%",))
+        #cursor.execute("SELECT name, author from Team13_DBinstance.Book WHERE name LIKE %s OR author LIKE %s", (book, book))
         # cursor.execute("SELECT name, author from Team13_DBinstance.Book WHERE name LIKE %s%", book)
         conn.commit()
         data = cursor.fetchall()
@@ -83,15 +84,6 @@ def home():
     # data = cursor.fetchall()
     # print(data)
     return render_template('home.html')
-
-
-
-
-
-
-
-
-
 
 
 ##Must be placed just below search function
