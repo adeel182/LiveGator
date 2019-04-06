@@ -1,4 +1,3 @@
-from ..db.connection import conn, cursor
 
 #user
 def get_user(role, parameter):
