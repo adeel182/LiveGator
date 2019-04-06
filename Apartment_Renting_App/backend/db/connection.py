@@ -1,5 +1,4 @@
 import mysql.connector
-import app
 conn = mysql.connector.connect(host = "csc648-db-team13.covsgblvixwf.us-east-2.rds.amazonaws.com",
                             database = 'Team13_DBinstance',
                             user = 'root',

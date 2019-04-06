@@ -22,7 +22,7 @@ def signup(username, password, email, isStudent):
 def get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, key):
     sql_str = "SELECT * from LISTINGS WHERE isAvailable = TRUE"
     if key is not "":
-        sql_str = sql_str + " AND house_name LIKE '%{}%'".format(key) + " OR type LIKE '%{}%'".format(key) +  " OR description LIKE '%{}%'".format(key) + " OR street LIKE '%{}%'".format(key) + " OR city LIKE '%{}%'".format(key)
+        sql_str = sql_str + " AND house_name LIKE '%{}%'".format(key) + " OR type LIKE '%{}%'".format(key) +  " OR description LIKE '%{}%'".format(key) + " OR street LIKE '%{}%'".format(key) + " OR city LIKE '%{}%'".format(key) + " OR zipcode LIKE '%{}%'".format(key)
     if price_low is not -1:
         sql_str = sql_str + " AND price >= {}".format(price_low)
     if price_high is not -1:
