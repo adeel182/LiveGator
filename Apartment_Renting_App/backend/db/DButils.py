@@ -23,17 +23,17 @@ def get_all_listings(price_low, price_high, size_low, size_high, distance_low, d
     sql_str = "SELECT * from LISTINGS WHERE isAvailable = TRUE"
     if key is not "":
         sql_str = sql_str + " AND house_name LIKE '%{}%'".format(key) + " OR type LIKE '%{}%'".format(key) +  " OR description LIKE '%{}%'".format(key) + " OR street LIKE '%{}%'".format(key) + " OR city LIKE '%{}%'".format(key) + " OR zipcode LIKE '%{}%'".format(key)
-    if price_low is not -1:
+    if price_low is not "":
         sql_str = sql_str + " AND price >= {}".format(price_low)
-    if price_high is not -1:
+    if price_high is not "":
         sql_str = sql_str + " AND price <= {}".format(price_high)
-    if size_low is not -1:
+    if size_low is not "":
         sql_str = sql_str + " AND size >= {}".format(size_low)
-    if size_high is not -1:
+    if size_high is not "":
         sql_str = sql_str + " AND size <= {}".format(size_high)
-    if distance_low is not -1:
+    if distance_low is not "":
         sql_str = sql_str + " AND distance >= {}".format(distance_low)
-    if distance_high is not -1:
+    if distance_high is not "":
         sql_str = sql_str + " AND distance <= {}".format(distance_high)
     sql_str = sql_str + " ORDER BY create_date"
     # print(sql_str)

@@ -11,21 +11,55 @@
         <link rel="stylesheet" href="/static/index.css">
     </head>
     <body>
-        <h1><center>Library</center></h1>
-                       <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    All Categories
-  </a>
-
-
-</div>
-       
+        <div class = "logo" align="center">
+		  <b><h3><u>SFSU: CSC648 - Software Engineering, Spring 2019</u></h3></b>
+		  <h1>Members - Team 13</h1>
+	    </div>
+{#                       <div class="dropdown show">#}
+{#  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#    All Categories#}
+{#  </a>#}
+{#</div>#}
+        {% if current_user.user_id %}
+          Hi {{ username }}!
+            <form method="POST" action="/logout">
+            <button>logout</button>
+            </form>
+        {% endif %}
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+        <li><a href="/renter_dashboard">Renter dashboard</a></li>
+        <li><a href="/customer_dashboard">Customer dashboard</a></li>
+        <li><a href="/search">Search</a></li>
         <form class="example" method="GET" action="/search" style="margin:auto;max-width:600px">
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+            <select name="sort">
+              <option value=0>Sort by</option>
+              <option value=0>Newly added first</option>
+              <option value=1>Price low to high</option>
+              <option value=2>Price high to low</option>
+              <option value=3>Size low to high</option>
+              <option value=4>Size high to low</option>
+              <option value=5>Distance low to high </option>
+              <option value=6>Distance high to low</option>
+            </select>
+
+            <select name="type">
+              <option value="all">Select listing types</option>
+              <option value="condo">Condos</option>
+              <option value="house">Houses</option>
+              <option value="apt">Apartments</option>
+              <option value="town">Townhomes</option>
+              <option value="room">Single rooms</option>
+            </select>
+
+            <input type="text" placeholder="Min Price" name="price_low">
+            <input type="text" placeholder="Max Price" name="price_high">
+            <input type="text" placeholder="Min Size" name="size_low">
+            <input type="text" placeholder="Max Size" name="size_high">
+            <input type="text" placeholder="Min Distance" name="distance_low">
+            <input type="text" placeholder="Max Distance" name="distance_high">
             <input type="text" placeholder="Search by listing name, listing type, description, or address" name="search_key">
             <button type="submit"><i class="fa fa-search"></i>
             </button>
@@ -42,7 +76,7 @@
                   <h4 id='title'> {{item.house_name}}</h4>
                 </a>
               </div>
-              <div class="col-lg-2 col-md-2 col-sm-2"></div>
+{#              <div class="col-lg-2 col-md-2 col-sm-2"></div>#}
               <div >
                 <p>price: {{item.price}}</p>
                 <p>type: {{item.type}}</p>

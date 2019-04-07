@@ -14,6 +14,9 @@ def login():
     # print(1)
     if request.method == 'GET':
         # print(2)
+        # dir = request.form["next"]
+        print(request.args)
+        dir = request.args.get("next")
         return render_template('login.html')
     # print(request)
     username = request.form['username']
@@ -29,7 +32,7 @@ def login():
         print("username not found")
         flash('Username is invalid' , 'error')
         return redirect('/login')
-    print(user_query)
+    # print(user_query)
     hashed_pwd = user_query[2]
     # print(hashed_pwd)
     if not check_password_hash(hashed_pwd, password):
@@ -40,7 +43,8 @@ def login():
     login_user(user_found)
     flash('Logged in successfully')
     print("Logged in successfully")
-    return redirect(request.args.get('next') or '/')
+    # print(request.form)
+    return redirect('/')
 
 
 
@@ -52,7 +56,11 @@ def signup():
     # print(request.form['is_student'])
         password = request.form['password']
         hashed_pwd = generate_password_hash(password)
-        user.signup(request.form['username'], hashed_pwd, request.form['email'], request.form['is_student'])
+        is_sutdent = False
+        if "is_student" in request.form:
+            is_sutdent = True
+        # print(request.form)
+        user.signup(request.form['username'], hashed_pwd, request.form['email'], is_sutdent)
     except:
         flash('Duplicate username. Please try again')
         return redirect('/signup')
@@ -64,4 +72,4 @@ def signup():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect('/')

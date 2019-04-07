@@ -42,5 +42,10 @@ class User():
     def get_id(self):
         return str(self.user_id)
 
+    def get_username(self):
+        try:
+            return get_user_by_id(self.user_id)[1]
+        except:
+            return "Visitor"
     # def __repr__(self):
     #     return '<User %r>' % (self.username)

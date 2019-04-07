@@ -50,24 +50,13 @@ def load_user(id):
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    flash('Logged in successfully')
-
-    # cursor.execute("SELECT * from test")
-    # data = cursor.fetchall()
-    # print(data)
-    return render_template('home.html')
+    data = listings.display_all_listings()
+    return render_template('search.html', data = data, current_user = current_user, username = User.get_username(current_user))
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
-
-    # cursor.execute("SELECT * from test")
-    # data = cursor.fetchall()
-    # print(data)
-
-    # key = first_name = request.args.get("firstname")
-    #
     data = listings.display_all_listings()
-    return render_template('search.html', data = data)
+    return render_template('search.html', data = data, current_user = current_user, username = User.get_username(current_user))
 
 
 if __name__ == "__main__":

@@ -13,14 +13,14 @@ def get_msg_by_customerid(customer_id):
     return renter_username
 
 
-def get_msg_by_renterid(renter_id):
-    all_msg = DButils.get_all_msg_by_id("renter_id", renter_id)
+def get_msg_by_renterid(landlord_id):
+    all_msg = DButils.get_all_msg_by_id("landlord_id", landlord_id)
     customer_id_set = set()
     for msg in all_msg:
         customer_id_set.add(msg[1])
     customer_username = []
-    for renter_id in customer_id_set:
-        renter = DButils.get_user("user_id", renter_id)
+    for landlord_id in customer_id_set:
+        renter = DButils.get_user("user_id", landlord_id)
         customer_username.append(renter[1])
     return customer_username
 
