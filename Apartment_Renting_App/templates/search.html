@@ -46,25 +46,23 @@
             </select>
 
             <select name="type">
-              <option value="all">Select listing types</option>
+              <option value="">Select listing types</option>
               <option value="condo">Condos</option>
               <option value="house">Houses</option>
               <option value="apt">Apartments</option>
               <option value="town">Townhomes</option>
               <option value="room">Single rooms</option>
             </select>
+                <input type="text" placeholder="Min Price" name="price_low">
+                <input type="text" placeholder="Max Price" name="price_high">
+                <input type="text" placeholder="Min Size" name="size_low">
+                <input type="text" placeholder="Max Size" name="size_high">
+                <input type="text" placeholder="Min Distance" name="distance_low">
+                <input type="text" placeholder="Max Distance" name="distance_high">
 
-            <input type="text" placeholder="Min Price" name="price_low">
-            <input type="text" placeholder="Max Price" name="price_high">
-            <input type="text" placeholder="Min Size" name="size_low">
-            <input type="text" placeholder="Max Size" name="size_high">
-            <input type="text" placeholder="Min Distance" name="distance_low">
-            <input type="text" placeholder="Max Distance" name="distance_high">
             <input type="text" placeholder="Search by listing name, listing type, description, or address" name="search_key">
-            <button type="submit"><i class="fa fa-search"></i>
-            </button>
+            <button type="submit"><i class="fa fa-search"></i></button>
         </form>
-        <p></p>
         <center>
         {% for item in data %}
             <li>

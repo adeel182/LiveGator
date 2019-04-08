@@ -56,7 +56,7 @@ CREATE TABLE MESSAGE
 
 
 INSERT INTO USER (username, password, email, role, isStudent) VALUES
-('kim', '123', 'kim@gmail.com', 2, TRUE),
+('kim', 'pbkdf2:sha256:50000$9XWLJGwo$6678202a64d3f2ff73112b52e5abf13abf55d7d7644649d3294d2db4ada8751e', 'kim@gmail.com', 2, TRUE),
 ('alex', 'pbkdf2:sha256:50000$haxl4dtL$0698478436cd3820cd1c24216fe11771b29162a62dbd0e09e8b71ac46a973ee0', 'alex@gmail.com', 1, TRUE),
 ('sindy', '123', 'sindy@gmail.com', 1, TRUE),
 ('daniel', 'pbkdf2:sha256:50000$AmTDRb0B$4a5816a363e041c03fa8016ca63799c1e3cba32ab1cda9f260f0b26262c09423', 'daniel@gmail.com', 1, TRUE);

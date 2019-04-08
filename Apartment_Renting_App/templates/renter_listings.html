@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>renter all listings</title>
+</head>
+<body>
+    <form method="GET" action="/renter_dashboard/view_listings">
+        <a>Sort by:</a>
+        <select name="sort">
+          <option value=0>Sort by</option>
+          <option value=0>Newly added first</option>
+          <option value=1>Price low to high</option>
+          <option value=2>Price high to low</option>
+          <option value=3>Size low to high</option>
+          <option value=4>Size high to low</option>
+          <option value=5>Distance low to high </option>
+          <option value=6>Distance high to low</option>
+        </select>
+        <button>refresh</button>
+    </form>
+    {% for item in data %}
+        <li>
+            <div class="row">
+                  <div ></div>
+                  <div >
+                    <a href='/all_listings/{{ item.house_id}}'>
+                      <img class="img-responsive" src="{{ item.image_url }}" height="10%"  ></img>
+                      <h4 id='title'> {{item.house_name}}</h4>
+                    </a>
+                  </div>
+                  <div >
+                    <p>price: {{item.price}}</p>
+                    <p>type: {{item.type}}</p>
+                    <p>size: {{item.size}}</p>
+                    <p>features: {{item.bedroom_count}} bedroom(s), {{item.bathroom_count}} bathroom(s), {{item.parking_count}} parking spot(s)</p>
+                    <p>address: {{item.number}}  {{item.street}}  {{item.city}} {{item.state}} {{item.zipcode}}</p>
+                    <p>Description: {{item.description}}</p>
+                    <p>Available? {{item.isAvailable}}</p>
+                    <p>Approved? {{item.approved}}</p>
+                    <p>Created on: {{item.create_date}}</p>
+                  </div>
+                  <form method="POST" action="/renter_dashboard/delete">
+                      <button name="house_id" value={{item.house_id}}}>Delete this listing</button>
+                  </form>
+            </div>
+          </li>
+    {% endfor %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

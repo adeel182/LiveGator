@@ -19,10 +19,8 @@ def signup(username, password, email, isStudent):
 
 
 #listing
-def get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, key):
-    sql_str = "SELECT * from LISTINGS WHERE isAvailable = TRUE"
-    if key is not "":
-        sql_str = sql_str + " AND house_name LIKE '%{}%'".format(key) + " OR type LIKE '%{}%'".format(key) +  " OR description LIKE '%{}%'".format(key) + " OR street LIKE '%{}%'".format(key) + " OR city LIKE '%{}%'".format(key) + " OR zipcode LIKE '%{}%'".format(key)
+def get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, listing_type, key):
+    sql_str = "SELECT * from LISTINGS WHERE isAvailable = TRUE AND approved = TRUE"
     if price_low is not "":
         sql_str = sql_str + " AND price >= {}".format(price_low)
     if price_high is not "":
@@ -35,6 +33,12 @@ def get_all_listings(price_low, price_high, size_low, size_high, distance_low, d
         sql_str = sql_str + " AND distance >= {}".format(distance_low)
     if distance_high is not "":
         sql_str = sql_str + " AND distance <= {}".format(distance_high)
+    if listing_type is not "":
+        sql_str = sql_str + " AND type = '{}'".format(listing_type)
+    if key is not "":
+        sql_str = sql_str + " AND house_name LIKE '%{}%'".format(key) + " OR type LIKE '%{}%'".format(
+            key) + " OR description LIKE '%{}%'".format(key) + " OR street LIKE '%{}%'".format(
+            key) + " OR city LIKE '%{}%'".format(key) + " OR zipcode LIKE '%{}%'".format(key)
     sql_str = sql_str + " ORDER BY create_date"
     # print(sql_str)
     cursor.execute(sql_str)
@@ -53,9 +57,9 @@ def get_listing_by_houseid(house_id):
     return cursor.fetchone()
 
 
-def create_new_listing(user_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url):
-    sql_str = "INSERT INTO LISTINGS (landlord_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-    cursor.execute(sql_str, (user_id, house_name, price, size, distance, number, street, city, state, zipcode, image_url))
+def create_new_listing(user_id, house_name, type, description, price, size, distance, number, street, city, state, zipcode, image_url, bedroom_count, bathroom_count, parking_count):
+    sql_str = "INSERT INTO LISTINGS (landlord_id, house_name, type, description, price, size, distance, number, street, city, state, zipcode, image_url, bedroom_count, bathroom_count, parking_count) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    cursor.execute(sql_str, (user_id, house_name, type, description, price, size, distance, number, street, city, state, zipcode, image_url, bedroom_count, bathroom_count, parking_count))
     conn.commit()
 
 
