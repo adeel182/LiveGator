@@ -13,7 +13,41 @@ order_endpoints = Blueprint('order_endpoints', __name__)
 @order_endpoints.route('/customer_dashboard/view_orders', methods=['GET'])
 def customer_view_orders():
     customer_id = current_user.user_id
-    return jsonify(orders.get_orders_by_customerid(customer_id))
+
+    data = orders.get_orders_by_customerid(customer_id)
+    result = []
+    for d in data:
+        customer_username = user.get_username_by_id(d[2])
+        landlord_username = user.get_username_by_id(d[1])
+
+        house = listings.get_listing_by_houseid(d[0])[0]
+        # print(house)
+        house_name = house[2]
+        js = {"house_id": d[0], "landlord_id": d[1], "customer_id": d[2], "create_date": d[3],
+              "customer_username": customer_username, "house_name": house_name, "landlord_username": landlord_username}
+        result.append(js)
+
+    return render_template("customer_orders.html", data = result)
+
+
+
+@order_endpoints.route('/renter_dashboard/view_orders', methods=['GET'])
+@login_required
+def renter_view_orders():
+    renter_id = current_user.user_id
+    data = orders.get_orders_by_renterid(renter_id)
+    result = []
+    for d in data:
+        customer_username = user.get_username_by_id(d[2])
+        landlord_username = user.get_username_by_id(renter_id)
+        house = listings.get_listing_by_houseid(d[0])[0]
+        # print(house)
+        house_name = house[2]
+        js = {"house_id": d[0], "landlord_id": d[1], "customer_id": d[2], "create_date": d[3],
+              "customer_username": customer_username, "house_name": house_name, "landlord_username": landlord_username}
+        result.append(js)
+    return render_template("renter_orders.html", data = result)
+
 
 
 @order_endpoints.route('/renter_dashboard/view_pending_request', methods=['GET'])
@@ -38,25 +72,19 @@ def renter_view_pending_request():
 @login_required
 def customer_view_pending_request():
     customer_id = current_user.user_id
-    return jsonify(orders.get_request_by_customerid(customer_id))
-
-
-@order_endpoints.route('/renter_dashboard/view_orders', methods=['GET'])
-@login_required
-def renter_view_orders():
-    renter_id = current_user.user_id
-    data = orders.get_orders_by_renterid(renter_id)
+    data = orders.get_request_by_customerid(customer_id)
     result = []
     for d in data:
-        customer_username = user.get_username_by_id(d[2])
-        landlord_username = user.get_username_by_id(renter_id)
+        landlord_username = user.get_username_by_id(d[1])
         house = listings.get_listing_by_houseid(d[0])[0]
         # print(house)
         house_name = house[2]
-        js = {"house_id": d[0], "landlord_id": d[1], "customer_id": d[2], "create_date": d[3],
-              "customer_username": customer_username, "house_name": house_name, "landlord_username": landlord_username}
+        js = {"house_id": d[0], "landlord_id": d[1], "customer_id": d[2], "create_date": d[3], "status": d[4],
+              "landlord_username": landlord_username, "house_name": house_name}
         result.append(js)
-    return render_template("renter_orders.html", data = result, )
+    # print(data)
+    return render_template("customer_pending_request.html", data = result)
+
 
 
 @order_endpoints.route('/place_order', methods=['POST'])

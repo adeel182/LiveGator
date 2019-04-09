@@ -2,21 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Customer order</title>
+    <title>Customer request</title>
 </head>
 <body>
     {% for item in data %}
         <li>
         <div>
           <div >
-            Listing: <a href='/all_listings/{{ item.house_id}}'> {{item.house_name}} </a>
-            <p>Customer: {{item.customer_username}}</p>
+            Requested listing: <a href='/all_listings/{{ item.house_id}}'> {{item.house_name}} </a>
             <p>Landlord: {{item.landlord_username}}</p>
-            <p>Date: {{item.create_date}}</p>
+            <p>Request date: {{item.create_date}}</p>
+            <p>Request status: {{item.status}}</p>
           </div>
         </div>
       </li>
     {% endfor %}
-
 </body>
 </html>

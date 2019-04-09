@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f719d207-fe78-4b20-8ddd-f319045f529b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db16b119-ff67-4091-8e50-f63b7c7b6a8c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/DButils.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/DButils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/orders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/mysql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/mysql/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/listings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/listings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/views/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/orders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/customer_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/customer_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/renter_add_a_new_listing.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/renter_add_a_new_listing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/renter_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/renter_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/renter_listings.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/renter_listings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/renter_orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/renter_orders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/customer_orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/customer_orders.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +13,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__backend_app_py_.coverage" NAME="Flask (backend/app.py) Coverage Results" MODIFIED="1551680440387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1554769288780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1554771597139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -81,11 +65,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/views/orders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="193">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#0#110#0" expanded="true" />
               </folding>
@@ -94,64 +78,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/customer_orders.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/renter_orders.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="16" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="18" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/models/orders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
+            <state relative-caret-position="275">
               <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/werkzeug/datastructures.py">
+        <entry file="file://$PROJECT_DIR$/templates/customer_pending_request.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="426" selection-start-line="426" selection-end-line="426" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/werkzeug/local.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="344" selection-start-line="344" selection-end-line="344" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/flask/cli.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="323" selection-start-line="323" selection-end-line="323" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/werkzeug/serving.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="292" selection-start-line="292" selection-end-line="292" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/db/DButils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="98" column="28" lean-forward="true" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/socketserver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="627" selection-start-line="627" selection-end-line="627" />
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -161,15 +118,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
               <caret line="861" selection-start-line="861" selection-end-line="861" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/http/server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="414" selection-start-line="414" selection-end-line="414" />
             </state>
           </provider>
         </entry>
@@ -233,7 +181,6 @@
         <option value="$PROJECT_DIR$/templates/add_a_new_listing.html" />
         <option value="$PROJECT_DIR$/backend/models/listings.py" />
         <option value="$PROJECT_DIR$/templates/renter_message.html" />
-        <option value="$PROJECT_DIR$/templates/customer_orders.html" />
         <option value="$PROJECT_DIR$/templates/customer_messages.html" />
         <option value="$PROJECT_DIR$/backend/views/user.py" />
         <option value="$PROJECT_DIR$/backend/db/connection.py" />
@@ -250,13 +197,15 @@
         <option value="$PROJECT_DIR$/backend/mysql/schema.sql" />
         <option value="$PROJECT_DIR$/backend/db/DButils.py" />
         <option value="$PROJECT_DIR$/templates/renter_pending_request.html" />
-        <option value="$PROJECT_DIR$/backend/views/orders.py" />
         <option value="$PROJECT_DIR$/backend/models/orders.py" />
+        <option value="$PROJECT_DIR$/templates/customer_pending_request.html" />
+        <option value="$PROJECT_DIR$/backend/views/orders.py" />
+        <option value="$PROJECT_DIR$/templates/customer_orders.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
+    <option name="x" value="17" />
     <option name="y" value="23" />
     <option name="width" value="1358" />
     <option name="height" value="783" />
@@ -416,12 +365,12 @@
       <workItem from="1554615442216" duration="14766000" />
       <workItem from="1554689443745" duration="15832000" />
       <workItem from="1554761061914" duration="900000" />
-      <workItem from="1554763677830" duration="5610000" />
+      <workItem from="1554763677830" duration="7693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140994000" />
+    <option name="totallyTimeSpent" value="143077000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -433,7 +382,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="23" width="1358" height="783" extended-state="0" />
+    <frame x="17" y="23" width="1358" height="783" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49892473" visible="true" weight="0.2530395" />
@@ -441,8 +390,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7059271" visible="true" weight="0.30180806" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.67629176" weight="0.3991655" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7051672" visible="true" weight="0.30180806" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6755319" weight="0.3991655" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49819756" weight="0.32962447" />
@@ -451,7 +400,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49964002" weight="0.32967034" />
       <window_info anchor="bottom" id="Database Changes" order="10" sideWeight="0.49964002" weight="0.32967034" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49676025" weight="0.44093406" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.29407296" side_tool="true" visible="true" weight="0.30180806" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.29483283" side_tool="true" visible="true" weight="0.30180806" />
       <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.49964002" weight="0.32967034" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -481,24 +430,29 @@
           <line>17</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="jinja2-line">
+          <url>file://$PROJECT_DIR$/templates/customer_pending_request.html</url>
+          <line>7</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/views/orders.py</url>
-          <line>84</line>
+          <line>112</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/views/orders.py</url>
-          <line>85</line>
+          <line>113</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/views/orders.py</url>
-          <line>24</line>
+          <line>58</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/backend/views/orders.py</url>
-          <line>72</line>
+          <line>100</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
@@ -508,16 +462,6 @@
     <SUITE FILE_PATH="coverage/Apartment_Renting_App$Apartment_Renting_App.coverage" NAME="Apartment_Renting_App Coverage Results" MODIFIED="1554421551956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/search-app/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -568,13 +512,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/about.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/customer_orders.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/customer_messages.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -641,13 +578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="57" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/customer_dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -724,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/renter_orders.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -749,13 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="363" selection-start-line="363" selection-end-line="363" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/renter_pending_request.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="61" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -815,17 +731,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/socketserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="627" selection-start-line="627" selection-end-line="627" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/threading.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="861" selection-start-line="861" selection-end-line="861" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/db/DButils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="86" column="31" lean-forward="true" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/customer_dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="43" selection-start-line="16" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -843,27 +766,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/views/orders.py">
+    <entry file="file://$PROJECT_DIR$/templates/renter_pending_request.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-          <folding>
-            <element signature="e#0#110#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/orders.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
+        <state relative-caret-position="275">
           <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/db/DButils.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/socketserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="98" column="28" lean-forward="true" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
+        <state relative-caret-position="128">
+          <caret line="627" selection-start-line="627" selection-end-line="627" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/customer_pending_request.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/renter_orders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="16" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="18" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/customer_orders.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/views/orders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#110#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
