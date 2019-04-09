@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Customer message</title>
 </head>
 <body>
-
+    {% for item in data %}
+        <li>
+        <div>
+          <div >
+            <a href='/customer_dashboard/view_msg/{{item.renter_username}}'>
+              <h2> {{item.renter_username}}</h2>
+            </a>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
 </body>
 </html>

@@ -14,7 +14,12 @@ message_endpoints = Blueprint('message_endpoints', __name__)
 @login_required
 def customer_view_msg():
     customer_id = current_user.user_id
-    return jsonify(message.get_msg_by_customerid(customer_id))
+    data = message.get_msg_by_customerid(customer_id)
+    result = []
+    for d in data:
+        js = {"renter_username": d}
+        result.append(js)
+    return render_template("customer_messages.html", data = result)
 
 
 @message_endpoints.route('/renter_dashboard/view_msg', methods=['GET'])#return list of customer usernmae
@@ -35,7 +40,13 @@ def customer_view_msg_detail(username):
     customer_id = current_user.user_id
     renter = user.get_user_by_username(username)
     renter_id = renter[0]
-    return jsonify(message.get_msg_detail(renter_id, customer_id))
+    data = message.get_msg_detail(renter_id, customer_id)
+    result = []
+    for d in data:
+        sender = user.get_username_by_id(d[2])
+        js = {"sender": sender, "message": d[3], "date": d[4], "renter_username": username}
+        result.append(js)
+    return render_template("customer_messages_detail.html", data = result)
 
 
 @message_endpoints.route('/renter_dashboard/view_msg/<username>', methods=['GET'])
@@ -63,7 +74,7 @@ def send_direct_msg():
     contact_house = listings.get_listing_by_houseid(house_id)
     renter_id = contact_house[1]
     msg_to_send = request.form["message"]
-    return send_msg(renter_id, customer_id, customer_username, msg_to_send)
+    send_msg(renter_id, customer_id, customer_username, msg_to_send)
 
 
 @message_endpoints.route('/customer_dashboard/view_msg/<username>/send_msg', methods=['POST'])
@@ -74,7 +85,9 @@ def customer_send_msg(username):
     renter = user.get_user_by_username(username)
     renter_id = renter[0]
     msg_to_send = request.form["message"]
-    return send_msg(renter_id, customer_id, customer_username, msg_to_send)
+    send_msg(renter_id, customer_id, customer_id, msg_to_send)
+    redirect_url = '/customer_dashboard/view_msg/' + username
+    return redirect(redirect_url)
 
 
 @message_endpoints.route('/renter_dashboard/view_msg/<username>/send_msg', methods=['POST'])

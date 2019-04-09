@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>message detail</title>
+    <title>Title</title>
 </head>
 <body>
-    <b><h3><u>Conversation with {{data[0].customer_username}}</u></h3></b>
-
+    <b><h3><u>Conversation with {{data[0].renter_username}}</u></h3></b>
     {% for item in data %}
         <div>
           <div >
@@ -16,12 +15,11 @@
         </div>
     {% endfor %}
 
-    <form method="POST" action="/renter_dashboard/view_msg/{{data[0].customer_username}}/send_msg">
+    <form method="POST" action="/customer_dashboard/view_msg/{{data[0].renter_username}}/send_msg">
         <div>
             <input type="text" placeholder="Reply" name="message">
             <button>Reply</button>
         </div>
     </form>
-
 </body>
 </html>

@@ -42,10 +42,11 @@ def display_all_listings():
 def display_a_house(house_id):
     data = listings.get_listing_by_houseid(house_id)
     result = []
+
     # print(data)
     for d in data:
     #     print(d[6])
-        result = {"house_id": d[0], "landlord_id": d[1], "house_name": d[2], "type": d[3], "description": d[4], "price": d[5],
+        result = {"house_id": d[0], "landlord_id": str(d[1]), "house_name": d[2], "type": d[3], "description": d[4], "price": d[5],
             "size": d[6], "distance": d[7], "number": d[8], "street": d[9], "city": d[10], "state": d[11], "zipcode": d[12],
             'image_url': d[13], "bedroom_count": d[14], "bathroom_count": d[15], "parking_count": d[16], "is_available": d[17],
             "create_date": d[18], "approved": d[19]}
