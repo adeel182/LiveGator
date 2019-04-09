@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display a listing page</title>
+</head>
+<body>
+    <div >
+        <a href='/all_listings/{{ data.house_id}}'>
+          <img class="img-responsive" src="{{ data.image_url }}" height="10%"  ></img>
+          <h4> {{data.house_name}}</h4>
+        </a>
+    </div>
+    <div >
+        <p>price: {{data.price}}</p>
+        <p>type: {{data.type}}</p>
+        <p>size: {{data.size}}</p>
+        <p>features: {{data.bedroom_count}} bedroom(s), {{data.bathroom_count}} bathroom(s), {{data.parking_count}} parking spot(s)</p>
+        <p>address: {{data.number}}  {{data.street}}  {{data.city}}, {{data.state}}, {{data.zipcode}}</p>
+        <p>Description: {{data.description}}</p>
+        <p>Availability: {{data.is_available}}</p>
+    </div>
+
+    {% if data.is_available == 1%}
+
+        <form method="POST" action="/send_direct_msg">
+            <button>Message the landlord</button>
+        </form>
+
+        <form method="POST" action="/send_renting_request">
+            <button name="house_id" value={{data.house_id}}>Send renting request</button>
+        </form>
+
+    {% endif %}
+    <form>
+    </form>
+</body>
+</html>

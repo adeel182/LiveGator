@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Renter orders</title>
 </head>
 <body>
+    {% for item in data %}
+        <li>
+        <div>
+          <div >
+            Listing: <a href='/all_listings/{{ item.house_id}}'> {{item.house_name}} </a>
+            <p>Customer: {{item.customer_username}}</p>
+            <p>Landlord: {{item.landlord_username}}</p>
+            <p>Date: {{item.create_date}}</p>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+
 
 </body>
 </html>

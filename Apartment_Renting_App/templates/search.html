@@ -26,6 +26,7 @@
             <button>logout</button>
             </form>
         {% endif %}
+
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/login">Login</a></li>
@@ -66,15 +67,13 @@
         <center>
         {% for item in data %}
             <li>
-            <div class="row">
-              <div ></div>
+            <div>
               <div >
                 <a href='/all_listings/{{ item.house_id}}'>
                   <img class="img-responsive" src="{{ item.image_url }}" height="10%"  ></img>
-                  <h4 id='title'> {{item.house_name}}</h4>
+                  <h4> {{item.house_name}}</h4>
                 </a>
               </div>
-{#              <div class="col-lg-2 col-md-2 col-sm-2"></div>#}
               <div >
                 <p>price: {{item.price}}</p>
                 <p>type: {{item.type}}</p>
@@ -83,7 +82,6 @@
                 <p>address: {{item.number}}  {{item.street}}  {{item.city}} {{item.state}} {{item.zipcode}}</p>
                 <p>Description: {{item.description}}</p>
               </div>
-              <div ></div>
             </div>
           </li>
         {% endfor %}

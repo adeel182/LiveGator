@@ -29,12 +29,9 @@ def display_all_listings():
     # print(data)
     result = []
     for d in data:
-        js = {
-            "house_id": d[0], "landlord_id": d[1], "house_name": d[2], "type": d[3], "description": d[4], "price": d[5],
-            "size": d[6], "distance": d[7], "number": d[8], "street": d[9], "city": d[10], "state": d[11],
-            "zipcode": d[12],
-            'image_url': d[13], "bedroom_count": d[14], "bathroom_count": d[15], "parking_count": d[16],
-            "is_available:": d[17],
+        js = {"house_id": d[0], "landlord_id": d[1], "house_name": d[2], "type": d[3], "description": d[4], "price": d[5],
+            "size": d[6], "distance": d[7], "number": d[8], "street": d[9], "city": d[10], "state": d[11], "zipcode": d[12],
+            'image_url': d[13], "bedroom_count": d[14], "bathroom_count": d[15], "parking_count": d[16], "is_available:": d[17],
             "create_date": d[18], "approved": d[19]}
         result.append(js)
     # print(result)
@@ -43,12 +40,17 @@ def display_all_listings():
 
 @listing_endpoints.route('/all_listings/<house_id>', methods=['GET'])
 def display_a_house(house_id):
-    return jsonify(listings.get_listing_by_houseid(house_id))
+    data = listings.get_listing_by_houseid(house_id)
+    result = []
+    # print(data)
+    for d in data:
+    #     print(d[6])
+        result = {"house_id": d[0], "landlord_id": d[1], "house_name": d[2], "type": d[3], "description": d[4], "price": d[5],
+            "size": d[6], "distance": d[7], "number": d[8], "street": d[9], "city": d[10], "state": d[11], "zipcode": d[12],
+            'image_url': d[13], "bedroom_count": d[14], "bathroom_count": d[15], "parking_count": d[16], "is_available": d[17],
+            "create_date": d[18], "approved": d[19]}
+    return render_template("search_single_listing.html", data = result)
 
-
-# @listing_endpoints.before_request
-# def load_users():
-#    g.user_id = current_user.user_id
 
 
 @listing_endpoints.route('/renter_dashboard/view_listings', methods=['GET'])
@@ -78,7 +80,7 @@ def get_listings_by_userid():
 @login_required
 def add_a_new_listing():
     if request.method == 'GET':
-        return render_template(add_a_new_listing)
+        return render_template("renter_add_a_new_listing.html")
     try:
         user_id = current_user.user_id
         house_name = request.form.get("house_name", "N/A")
@@ -97,7 +99,7 @@ def add_a_new_listing():
         bathroom_count = request.form.get("bathroom_count", "N/A")
         parking_count = request.form.get("parking_count", "N/A")
         listings.add_a_new_listing(user_id, house_name, type, description, price, size, distance, number, street, city, state, zipcode, image_url, bedroom_count, bathroom_count, parking_count)
-        return redirect('/enter_dashboard/view_listings')
+        return redirect('/renter_dashboard/view_listings')
     except:
         return abort(400)
 
@@ -105,6 +107,6 @@ def add_a_new_listing():
 @listing_endpoints.route('/renter_dashboard/delete', methods=['POST'])
 @login_required
 def delete_a_listing():
-    house_id = request.form.get("house_id", "N/A")
+    house_id = request.form["house_id"]
     listings.delete_listing(house_id)
     return redirect('renter_dashboard/view_listings')

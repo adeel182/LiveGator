@@ -15,7 +15,7 @@ def login():
     if request.method == 'GET':
         # print(2)
         # dir = request.form["next"]
-        print(request.args)
+        # print(request.args)
         dir = request.args.get("next")
         return render_template('login.html')
     # print(request)
@@ -63,6 +63,7 @@ def signup():
         user.signup(request.form['username'], hashed_pwd, request.form['email'], is_sutdent)
     except:
         flash('Duplicate username. Please try again')
+        print('Duplicate username. Please try again')
         return redirect('/signup')
     flash('User successfully registered')
     return redirect('/login')

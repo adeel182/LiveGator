@@ -24,7 +24,7 @@
             <div class="row">
                   <div ></div>
                   <div >
-                    <a href='/all_listings/{{ item.house_id}}'>
+                    <a href='/all_listings/{{item.house_id}}'>
                       <img class="img-responsive" src="{{ item.image_url }}" height="10%"  ></img>
                       <h4 id='title'> {{item.house_name}}</h4>
                     </a>
@@ -41,7 +41,7 @@
                     <p>Created on: {{item.create_date}}</p>
                   </div>
                   <form method="POST" action="/renter_dashboard/delete">
-                      <button name="house_id" value={{item.house_id}}}>Delete this listing</button>
+                      <button name="house_id" value={{item.house_id}}>Delete this listing</button>
                   </form>
             </div>
           </li>

@@ -9,26 +9,29 @@
 
 
     <form method="POST" action="/renter_dashboard/add_a_new_listing">
-        <select name="type">
-          <option value="">Select listing types</option>
-          <option value="condo">Condos</option>
-          <option value="house">Houses</option>
-          <option value="apt">Apartments</option>
-          <option value="town">Townhomes</option>
-          <option value="room">Single rooms</option>
-        </select>
-        house_name, price, size, distance, number, street, city, state, zipcode, image_url
-            Listing name<input type="text" placeholder="Listing name" name="house_name">
-            Price<input type="text" placeholder="Price" name="price">
-            Size<input type="text" placeholder="Size" name="size">
-            distance<input type="text" placeholder="Distance" name="distance">
+            Listing name <input type="text" placeholder="Listing name" name="house_name">
+            Listing type <select name="type">
+              <option value="">Select listing types</option>
+              <option value="condo">Condos</option>
+              <option value="house">Houses</option>
+              <option value="apt">Apartments</option>
+              <option value="town">Townhomes</option>
+              <option value="room">Single rooms</option>
+            </select>
+            Price <input type="text" placeholder="Price" name="price">
+            Size <input type="text" placeholder="Size" name="size">
+            distance <input type="text" placeholder="Distance" name="distance">
             <p>Address:</p>
-            Street Number<input type="text" placeholder="Number" name="number">
-            Street<input type="text" placeholder="Street" name="street">
-            City<input type="text" placeholder="Street" name="city">
-            State<input type="text" placeholder="State" name="state">
-            Zipcode<input type="text" placeholder="Zip Code" name="zipcode">
-            Image<input type="text" placeholder="image_url" name="image_url">
+            Street Number <input type="text" placeholder="Number" name="number">
+            Street <input type="text" placeholder="Street" name="street">
+            City <input type="text" placeholder="Street" name="city">
+            State <input type="text" placeholder="State" name="state">
+            Zipcode <input type="text" placeholder="Zip Code" name="zipcode">
+            <p>Amenities:</p>
+            Bedroom count <input type="number" name="bedroom_count">
+            bathroom count <input type="number" name="bathroom_count">
+            parking count <input type="number" name="parking_count">
+            <p>Image <input type="text" placeholder="image_url" name="image_url"></p>
             <button type="submit">Create</button>
     </form>
 </body>

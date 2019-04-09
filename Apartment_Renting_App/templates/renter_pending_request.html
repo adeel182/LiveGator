@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Renter pending requests</title>
+</head>
+<body>
+    {% for item in data %}
+        <li>
+        <div>
+          <div >
+            Requested listing: <a href='/all_listings/{{ item.house_id}}'> {{item.house_name}} </a>
+            <p>Request customer: {{item.customer_username}}</p>
+            <p>Request date: {{item.create_date}}</p>
+            <p>Request status: {{item.status}}</p>
+          </div>
+
+          {% if item.status == 0%}
+              <div>
+                  <form method="POST" action="/place_order">
+                    <button name="house_id" value={{item.house_id}}>Approve this request</button>
+                  </form>
+
+                  <form method="POST" action="/delete_request">
+                    <button name="house_id" value={{item.house_id}}>Decline this request</button>
+                  </form>
+              </div>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+</body>
+</html>
