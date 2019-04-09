@@ -21,7 +21,12 @@ def customer_view_msg():
 @login_required
 def renter_view_msg():
     renter_id = current_user.user_id
-    return jsonify(message.get_msg_by_renterid(renter_id))
+    data = message.get_msg_by_renterid(renter_id)
+    result = []
+    for d in data:
+        js = {"customer_username": d}
+        result.append(js)
+    return render_template("renter_messages.html", data = result)
 
 
 @message_endpoints.route('/customer_dashboard/view_msg/<username>', methods=['GET'])
@@ -39,7 +44,14 @@ def renter_view_msg_detail(username):
     renter_id = current_user.user_id
     customer = user.get_user_by_username(username)
     customer_id = customer[0]
-    return jsonify(message.get_msg_detail(renter_id, customer_id))
+    data = message.get_msg_detail(renter_id, customer_id)
+    result = []
+    for d in data:
+        sender = user.get_username_by_id(d[2])
+        js = {"sender": sender, "message": d[3], "date": d[4], "customer_username": username}
+        result.append(js)
+    return render_template("renter_message_detail.html", data = result)
+
 
 
 @message_endpoints.route('/send_direct_msg', methods=['POST'])
@@ -73,7 +85,9 @@ def renter_send_msg(username):
     customer = user.get_user_by_username(username)
     customer_id = customer[0]
     msg_to_send = request.form["message"]
-    return send_msg(renter_id, customer_id, renter_username, msg_to_send)
+    send_msg(renter_id, customer_id, renter_id, msg_to_send)
+    redirect_url = '/renter_dashboard/view_msg/' + username
+    return redirect(redirect_url)
 
 
 def send_msg(renter_id, customer_id, sender, msg_to_send):
@@ -82,7 +96,7 @@ def send_msg(renter_id, customer_id, sender, msg_to_send):
         return make_response(jsonify({'code': '400',
                                       'msg': 'You cannot send message to yourself'}), 400)
     try:
-        print("renter:", renter_id, "customer:", customer_id)
+        # print("renter:", renter_id, "customer:", customer_id)
         message.send_msg(renter_id, customer_id, sender, msg_to_send)
     except:
         return make_response(jsonify({'code': '400',
