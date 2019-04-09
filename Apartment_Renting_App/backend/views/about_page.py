@@ -14,34 +14,34 @@ def about():
 
 @about_page_endpoints.route('/about/AmarisAboutMe', methods=['GET', 'POST'])
 def aboutAmarisAboutMe():
-    return render_template('AmarisAboutMe.html')
+    return render_template('about_AmarisAboutMe.html')
 
 
 @about_page_endpoints.route('/about/kim', methods=['GET', 'POST'])
 def aboutKim():
-    return render_template('Kim.html')
+    return render_template('about_Kim.html')
 
 
 @about_page_endpoints.route('/about/sushil', methods=['GET', 'POST'])
 def aboutSushil():
-    return render_template('sushil.html')
+    return render_template('about_sushil.html')
 
 
 @about_page_endpoints.route('/about/Kurtis', methods=['GET', 'POST'])
 def aboutKurtis():
-    return render_template('Kurtis.html')
+    return render_template('about_Kurtis.html')
 
 
 @about_page_endpoints.route('/about/Adeel', methods=['GET', 'POST'])
 def aboutAdeel():
-    return render_template('Adeel.html')
+    return render_template('about_Adeel.html')
 
 
 @about_page_endpoints.route('/about/simon', methods=['GET', 'POST'])
 def aboutSimon():
-    return render_template('simon.html')
+    return render_template('about_simon.html')
 
 
 @about_page_endpoints.route('/about/brian', methods=['GET', 'POST'])
 def aboutBrian():
-    return render_template('brian.html')
+    return render_template('about_brian.html')

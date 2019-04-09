@@ -51,12 +51,12 @@ def load_user(id):
 @app.route("/", methods=['GET', 'POST'])
 def home():
     data = listings.display_all_listings()
-    return render_template('search.html', data = data, current_user = current_user, username = User.get_username(current_user))
+    return render_template('home_search.html', data = data, current_user = current_user, username = User.get_username(current_user))
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
     data = listings.display_all_listings()
-    return render_template('search.html', data = data, current_user = current_user, username = User.get_username(current_user))
+    return render_template('home_search.html', data = data, current_user = current_user, username = User.get_username(current_user))
 
 
 if __name__ == "__main__":

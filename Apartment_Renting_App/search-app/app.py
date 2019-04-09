@@ -63,8 +63,8 @@ def search():
             cursor.execute("SELECT name, author from Team13_DBinstance.Book")
             conn.commit()
             data = cursor.fetchall()
-        return render_template('search.html', data=data)
-    return render_template('search.html')
+        return render_template('home_search.html', data=data)
+    return render_template('home_search.html')
 
 
 #Finally, the code below is in charge to run our app application when the library.py is executed.

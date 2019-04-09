@@ -49,7 +49,7 @@ def display_a_house(house_id):
             "size": d[6], "distance": d[7], "number": d[8], "street": d[9], "city": d[10], "state": d[11], "zipcode": d[12],
             'image_url': d[13], "bedroom_count": d[14], "bathroom_count": d[15], "parking_count": d[16], "is_available": d[17],
             "create_date": d[18], "approved": d[19]}
-    return render_template("search_single_listing.html", data = result)
+    return render_template("home_search_single_listing.html", data = result)
 
 
 
