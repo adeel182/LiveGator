@@ -34,7 +34,7 @@ def signup(username, password, email, isStudent):
 def get_all_listings(price_low, price_high, size_low, size_high, distance_low, distance_high, listing_type, key):
     conn.connect()
     cur = conn.cursor()
-    sql_str = "SELECT * from LISTINGS WHERE isAvailable = TRUE AND approved = TRUE"
+    sql_str = "SELECT * from LISTINGS WHERE isAvailable = TRUE AND approved = TRUE AND deleted = FALSE"
     if price_low is not "":
         sql_str = sql_str + " AND price >= {}".format(price_low)
     if price_high is not "":
@@ -94,7 +94,8 @@ def create_new_listing(user_id, house_name, type, description, price, size, dist
 def delete_listing(house_id):
     conn.connect()
     cur = conn.cursor()
-    sql_str = "DELETE from LISTINGS WHERE house_id = %s"
+    # sql_str = "DELETE from LISTINGS WHERE house_id = %s"
+    sql_str = "UPDATE LISTINGS SET deleted = 1 WHERE house_id = %s"
     cursor.execute(sql_str, (house_id, ))
     conn.commit()
     cur.close()

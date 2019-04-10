@@ -22,7 +22,7 @@
     {% for item in data %}
         <li>
             <div class="row">
-                  <div ></div>
+                {%  if item.deleted == 0 %}
                   <div >
                     <a href='/all_listings/{{item.house_id}}'>
                       <img class="img-responsive" src="{{ item.image_url }}" height="10%"  ></img>
@@ -36,13 +36,14 @@
                     <p>features: {{item.bedroom_count}} bedroom(s), {{item.bathroom_count}} bathroom(s), {{item.parking_count}} parking spot(s)</p>
                     <p>address: {{item.number}}  {{item.street}}  {{item.city}} {{item.state}} {{item.zipcode}}</p>
                     <p>Description: {{item.description}}</p>
-                    <p>Available? {{item.isAvailable}}</p>
+                    <p>Available? {{item.is_available}}</p>
                     <p>Approved? {{item.approved}}</p>
                     <p>Created on: {{item.create_date}}</p>
                   </div>
                   <form method="POST" action="/renter_dashboard/delete">
                       <button name="house_id" value={{item.house_id}}>Delete this listing</button>
                   </form>
+                {% endif %}
             </div>
           </li>
     {% endfor %}

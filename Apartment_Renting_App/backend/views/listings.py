@@ -32,7 +32,7 @@ def display_all_listings():
         js = {"house_id": d[0], "landlord_id": d[1], "house_name": d[2], "type": d[3], "description": d[4], "price": d[5],
             "size": d[6], "distance": d[7], "number": d[8], "street": d[9], "city": d[10], "state": d[11], "zipcode": d[12],
             'image_url': d[13], "bedroom_count": d[14], "bathroom_count": d[15], "parking_count": d[16], "is_available:": d[17],
-            "create_date": d[18], "approved": d[19]}
+            "create_date": d[18], "approved": d[19], "deleted": d[20]}
         result.append(js)
     # print(result)
     return result
@@ -49,7 +49,7 @@ def display_a_house(house_id):
         result = {"house_id": d[0], "landlord_id": str(d[1]), "house_name": d[2], "type": d[3], "description": d[4], "price": d[5],
             "size": d[6], "distance": d[7], "number": d[8], "street": d[9], "city": d[10], "state": d[11], "zipcode": d[12],
             'image_url': d[13], "bedroom_count": d[14], "bathroom_count": d[15], "parking_count": d[16], "is_available": d[17],
-            "create_date": d[18], "approved": d[19]}
+            "create_date": d[18], "approved": d[19], "deleted": d[20]}
     return render_template("home_search_single_listing.html", data = result)
 
 
@@ -70,7 +70,7 @@ def get_listings_by_userid():
             "house_id": d[0], "landlord_id": d[1], "house_name": d[2], "type": d[3], "description": d[4], "price": d[5],
             "size": d[6], "distance": d[7], "number": d[8], "street": d[9], "city": d[10], "state": d[11], "zipcode": d[12],
             'image_url': d[13], "bedroom_count": d[14], "bathroom_count": d[15], "parking_count": d[16], "is_available:": d[17],
-            "create_date": d[18], "approved": d[19]}
+            "create_date": d[18], "approved": d[19], "deleted": d[20]}
         result.append(js)
     # print(result)
     return render_template("renter_listings.html", data = result)

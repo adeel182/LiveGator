@@ -10,7 +10,7 @@
           <img class="img-responsive" src="{{ data.image_url }}" height="10%"  ></img>
           <h4> {{data.house_name}}</h4>
         </a>
-        {% if data.is_available == 1%}
+        {% if data.is_available == 1 and data.deleted == 0%}
             {% if not current_user.user_id or current_user.user_id != data.landlord_id%}
                 <form method="POST" action="/send_renting_request">
                     <button name="house_id" value={{data.house_id}}>Send renting request</button>
@@ -29,7 +29,7 @@
     </div>
 
 
-    {% if data.is_available == 1%}
+    {% if data.is_available == 1 and data.deleted == 0%}
         {% if not current_user.user_id or current_user.user_id != data.landlord_id%}
             <form method="POST" action="/send_direct_msg">
                 <input type="text" placeholder="Message landlord" name="message">
