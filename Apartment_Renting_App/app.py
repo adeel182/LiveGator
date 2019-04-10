@@ -26,17 +26,6 @@ app.register_blueprint(order_endpoints)
 app.register_blueprint(message_endpoints)
 app.register_blueprint(admin_endpoints)
 
-# Database connection info. Note that this igit@github.com:CSC-648-SFSU/csc648-sp19-team13.gitgit@github.com:CSC-648-SFSU/csc648-sp19-team13.gitgit@github.com:CSC-648-SFSU/csc648-sp19-team13.git not a secure connection.
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root1234'
-app.config['MYSQL_DATABASE_DB'] = 'Team13_DBinstance'
-app.config['MYSQL_DATABASE_HOST'] = 'csc648-db-team13.covsgblvixwf.us-east-2.rds.amazonaws.com'
-
-mysql = MySQL()
-mysql.init_app(app)
-conn = mysql.connect()
-cursor = conn.cursor()
-
 
 login_manager = LoginManager()
 login_manager.init_app(app)

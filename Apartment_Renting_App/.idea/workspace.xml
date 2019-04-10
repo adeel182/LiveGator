@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f719d207-fe78-4b20-8ddd-f319045f529b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db/DButils.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/DButils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/message.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +14,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__backend_app_py_.coverage" NAME="Flask (backend/app.py) Coverage Results" MODIFIED="1551680440387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1554859751746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Apartment_Renting_App$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1554871054349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -102,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+            <state relative-caret-position="60">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -123,20 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.5/site-packages/flask/app.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="1956" selection-start-line="1956" selection-end-line="1956" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/db/DButils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="38" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="38" />
+            <state relative-caret-position="170">
+              <caret line="222" column="39" lean-forward="true" selection-start-line="222" selection-end-line="223" />
             </state>
           </provider>
         </entry>
@@ -144,8 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/db/connection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="15">
+              <caret line="1" column="10" selection-start-line="1" selection-end-line="1" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -192,7 +183,19 @@
       <find>send</find>
       <find>Now</find>
       <find>item</find>
+      <find>fetchone</find>
+      <find>fetchal</find>
+      <find>cursor.close()</find>
+      <find>conn.close()</find>
+      <find>#cursor.close(</find>
+      <find>#conn.close()</find>
     </findStrings>
+    <replaceStrings>
+      <replace>#cursor.close(</replace>
+      <replace>#conn.close()</replace>
+      <replace>cur.close()</replace>
+      <replace>conn.close()</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -219,7 +222,6 @@
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/signup.html" />
         <option value="$PROJECT_DIR$/templates/home.html" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/backend/models/message.py" />
         <option value="$PROJECT_DIR$/templates/add_a_new_listing.html" />
         <option value="$PROJECT_DIR$/backend/models/listings.py" />
@@ -249,6 +251,7 @@
         <option value="$PROJECT_DIR$/backend/views/listings.py" />
         <option value="$PROJECT_DIR$/templates/home_search_single_listing.html" />
         <option value="$PROJECT_DIR$/backend/views/message.py" />
+        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/backend/db/connection.py" />
         <option value="$PROJECT_DIR$/backend/db/DButils.py" />
       </list>
@@ -283,12 +286,13 @@
               <item name="Apartment_Renting_App" type="b2602c69:ProjectViewProjectNode" />
               <item name="Apartment_Renting_App" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Apartment_Renting_App" type="b2602c69:ProjectViewProjectNode" />
               <item name="Apartment_Renting_App" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Apartment_Renting_App" type="b2602c69:ProjectViewProjectNode" />
@@ -408,12 +412,12 @@
       <workItem from="1554615442216" duration="14766000" />
       <workItem from="1554689443745" duration="15832000" />
       <workItem from="1554761061914" duration="900000" />
-      <workItem from="1554763677830" duration="24005000" />
+      <workItem from="1554763677830" duration="25579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159389000" />
+    <option name="totallyTimeSpent" value="160963000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -427,12 +431,12 @@
   <component name="ToolWindowManager">
     <frame x="-10" y="23" width="1358" height="783" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49892473" visible="true" weight="0.2530395" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49892473" visible="true" weight="0.2530395" />
       <window_info id="Structure" order="1" sideWeight="0.50107527" side_tool="true" weight="0.22701149" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.699848" visible="true" weight="0.30180806" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.699848" visible="true" weight="0.30180806" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.67097265" weight="0.3991655" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -881,16 +885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -901,17 +895,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/db/connection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="15">
+          <caret line="1" column="10" selection-start-line="1" selection-end-line="1" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/db/DButils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="38" />
+        <state relative-caret-position="170">
+          <caret line="222" column="39" lean-forward="true" selection-start-line="222" selection-end-line="223" />
         </state>
       </provider>
     </entry>
