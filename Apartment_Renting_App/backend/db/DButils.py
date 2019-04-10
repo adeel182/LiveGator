@@ -4,6 +4,7 @@ from ..db.connection import conn, cursor
 def get_user(role, parameter):
     sql_str = "SELECT * from USER WHERE {} = %s".format(role)
     cursor.execute(sql_str, (parameter, ))
+
     return cursor.fetchone()
 
 def login(username):

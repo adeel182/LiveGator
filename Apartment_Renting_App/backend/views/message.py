@@ -71,11 +71,12 @@ def send_direct_msg():
     customer_id = current_user.user_id
     customer_username = user.get_user_by_id(customer_id)[1]
     house_id = request.form["house_id"]
-    contact_house = listings.get_listing_by_houseid(house_id)
+    contact_house = listings.get_listing_by_houseid(house_id)[0]
     renter_id = contact_house[1]
     msg_to_send = request.form["message"]
-    send_msg(renter_id, customer_id, customer_username, msg_to_send)
-
+    send_msg(renter_id, customer_id, customer_id, msg_to_send)
+    url = '/all_listings/' + house_id
+    return redirect(url)
 
 @message_endpoints.route('/customer_dashboard/view_msg/<username>/send_msg', methods=['POST'])
 @login_required
