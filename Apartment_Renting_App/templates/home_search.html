@@ -28,11 +28,17 @@
         {% endif %}
 
         <li><a href="/">Home</a></li>
+        {% if role != 2%}
         <li><a href="/about">About</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/signup">Signup</a></li>
         <li><a href="/renter_dashboard">Renter dashboard</a></li>
         <li><a href="/customer_dashboard">Customer dashboard</a></li>
+        {% endif %}
+        {% if role == 2%}
+        <li><a href="/approve_new_listing">Admin dashboard</a></li>
+        {% endif %}
+
         <form class="example" method="GET" action="/search" style="margin:auto;max-width:600px">
             <select name="sort">
               <option value=0>Sort by</option>

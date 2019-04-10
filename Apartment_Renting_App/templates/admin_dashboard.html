@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul class="nav">
+	  <div class = "logo" align="center">
+		  <b><h3><u>Admin Dashboard</u></h3></b>
+	  </div>
+	  <li><a href="/">Home</a></li>
+
+      <b><h3><u>All new listings</u></h3></b>
+      {% for item in data %}
+            <li>
+            <div>
+                House name: <a href='/all_listings/{{item.house_id}}'>
+                  <h4>{{item.house_name}}</h4>
+                </a>
+                <p>Landlord: {{item.landlord}}</p>
+                <p>Create date: {{item.create_date}}</p>
+                <form method="POST" action="/approve_new_listing">
+                    <button name="house_id" value={{item.house_id}}>Approve</button>
+                </form>
+            </div>
+          </li>
+        {% endfor %}
+
+	</ul>
+</body>
+</html>
