@@ -61,3 +61,7 @@ def search():
 
 if __name__ == "__main__":
     app.run()
+    #Below used for opening ports, and allowing connections to website
+    #Toggle app.run() and below app.run(host... when adding to online server.
+
+    #app.run(host='0.0.0.0', port=80, debug=True)
