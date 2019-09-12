@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>My Listings</title>
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template-->
+    <link href="../static/index.css" rel="stylesheet">
+
+</head>
+
+<!-- Nav -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">LiveGator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            {% if role==2 %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/approve_new_listing">
+                        <span>New listings to be approved</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/landlord_dashboard/add_a_new_listing">
+                        <span>Post</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/customer_dashboard">
+                        <span>My Profile</span></a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">
+                        <span>About Us</span></a>
+                </li>
+            {% endif %}
+            <div class="mx-auto">
+                <form class="form-inline my-2 my-lg-0 " method="GET" action = "/search" >
+                    <select name="sort" class="form-control mr-sm-2">
+                        <option value=0 {% if sort=='0' %} selected {% endif %}>Newly added first</option>
+                        <option value=1 {% if sort=='1' %} selected {% endif %}>Price low to high</option>
+                        <option value=5 {% if sort=='5' %} selected {% endif %}>Distance low to high </option>
+
+                    </select>
+
+                    <select name="type" class="form-control mr-sm-2">
+                        <option value="">All Categories</option>
+                        <option value="Condo" {% if type=='Condo' %} selected {% endif %}>Condos</option>
+                        <option value="House" {% if type=='House' %} selected {% endif %}>Houses</option>
+                        <option value="Apartment" {% if type=='Apartment' %} selected {% endif %}>Apartments</option>
+                        <option value="Townhome" {% if type=='Townhome' %} selected {% endif %}>Townhomes</option>
+                        <option value="Single room" {% if type=='Single room' %} selected {% endif %}>Single rooms</option>
+                    </select>
+                    <input class="form-control mr-sm-2" type="text" size="35" placeholder="Search by listing name, listing type, description, or address" name="search_key" value = "{{ key }}">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            </li>
+        </ul>
+
+        <!-- Log in and signup -->
+
+        <ul class="navbar-nav ml-auto">
+            {% if current_user.user_id %}
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled">Hi {{ username }}!</a>
+                </li>
+
+                <form method="POST" action="/logout">
+                    <button class = "btn btn-outline-light my-2 my-sm-0">Logout</button>
+                </form>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">
+                        <i class="far fa-user"></i>
+
+                        <span>Sign Up</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span >Login</span> </a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>
+
+
+
+<!-- Renter Listing Table -->
+<div class="card shadow mb-4 align-items-center">
+    <div class="py-3">
+        <h6 class="font-weight-bold text-primary text-center">My Listings</h6>
+    </div>
+    <!-- Sort -->
+    <form method="GET" action="/landlord_dashboard/view_listings">
+        <a>Sort by:</a>
+        <select name="sort">
+            <option value=0>Sort by</option>
+            <option value=0>Newly added first</option>
+            <option value=1>Price low to high</option>
+            <option value=2>Price high to low</option>
+            <option value=3>Size low to high</option>
+            <option value=4>Size high to low</option>
+        </select>
+        <button class="button">refresh</button>
+    </form>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered fixed_header" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Address</th>
+                    <th>Available?</th>
+                    <th>Approved?</th>
+                    <th>Date Created</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in data %}
+                    {%  if item.deleted == 0 %}
+                    <tr>
+                        <td>
+                            <a href='/all_listings/{{ item.house_id }}'>
+                                <img class="img-responsive" src="{{ url_for('static', filename=item.image_url) }}" style="width:240px;height:179px;">
+                            </a>
+                        </td>
+                        <td>{{ item.house_name }}</td>
+                        <td>${{ item.price }}</td>
+                        <td>{{ item.type }}</td>
+                        <td>{{ item.number }} {{ item.street }} <br> {{ item.city }}, {{ item.state }} {{ item.zipcode }}</td>
+                        <td>{% if item.is_available == 1%} Yes {% else %} No {% endif %} </td>
+                        <td>{% if item.approved == 1%} Yes {% else %} No {% endif %}</td>
+                        <td>{{ item.create_date }}</td>
+                        <td>
+                            <form method="POST" action="/landlord_dashboard/delete">
+                                <button name="house_id" value={{ item.house_id }}>Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>renter all listings</title>#}
+{#</head>#}
+{#<body>#}
+{#<a href="/search_results">Home</a>#}
+{#    <form method="GET" action="/landlord_dashboard/view_listings">#}
+{#        <a>Sort by:</a>#}
+{#        <select name="sort">#}
+{#          <option value=0>Sort by</option>#}
+{#          <option value=0>Newly added first</option>#}
+{#          <option value=1>Price low to high</option>#}
+{#          <option value=2>Price high to low</option>#}
+{#          <option value=3>Size low to high</option>#}
+{#          <option value=4>Size high to low</option>#}
+{#          <option value=5>Distance low to high </option>#}
+{#          <option value=6>Distance high to low</option>#}
+{#        </select>#}
+{#        <button>refresh</button>#}
+{#    </form>#}
+{#    {% for item in data %}#}
+{#        <li>#}
+{#            <div class="row">#}
+{#                {%  if item.deleted == 0 %}#}
+{#                  <div >#}
+{#                    <a href='/all_listings/{{item.house_id}}'>#}
+{#                      <img class="img-responsive" src="{{ url_for('static', filename=item.image_url) }}" style="width:360px;height:360px;"  ></img>#}
+{#                      <h4 id='title'> {{item.house_name}}</h4>#}
+{#                    </a>#}
+{#                  </div>#}
+{#                  <div >#}
+{#                    <p>Price: {{item.price}}</p>#}
+{#                    <p>Type: {{item.type}}</p>#}
+{#                    <p>Size: {{item.size}}</p>#}
+{#                    <p>Distance: {{item.distance}}</p>#}
+{#                    <p>Features: {{item.bedroom_count}} bedroom(s), {{item.bathroom_count}} bathroom(s), {{item.parking_count}} parking spot(s)</p>#}
+{#                    <p>Address: {{item.number}}  {{item.street}}  {{item.city}} {{item.state}} {{item.zipcode}}</p>#}
+{#                    <p>Description: {{item.description}}</p>#}
+{#                    <p>Available? {% if  item.is_available == 1%} Yes {% else %} No {% endif %}</p>#}
+{#                    <p>Approved? {% if  item.approved == 1%} Yes {% else %} No {% endif %}</p>#}
+{#                    <p>Created on: {{item.create_date}}</p>#}
+{#                  </div>#}
+{#                  <form method="POST" action="/landlord_dashboard/delete">#}
+{#                      <button name="house_id" value={{item.house_id}}>Delete this listing</button>#}
+{#                  </form>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#          </li>#}
+{#    {% endfor %}#}
+{#    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>#}
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>#}
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>#}
+{##}
+{#</body>#}
+{#</html>#}

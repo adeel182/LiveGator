@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Landlord Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template-->
+    <link href="../static/index.css" rel="stylesheet">
+
+</head>
+
+<body>
+<p class="text-center" >SFSU Software Engineering Project CSC 648-848, Spring 2019. For Demonstration Only</p>
+
+<!-- Nav -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">LiveGator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/landlord_dashboard/add_a_new_listing">
+                    <span>Post</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/customer_dashboard">
+                    <span>My Profile</span></a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">
+                    <span>About Us</span></a>
+            </li>
+            <div class="mx-auto">
+                <form class="form-inline my-2 my-lg-0 " method="GET" action = "/search" >
+                                <select name="sort" class="form-control mr-sm-2">
+              <option value=0 {% if sort=='0' %} selected {% endif %}>Newly added first</option>
+              <option value=1 {% if sort=='1' %} selected {% endif %}>Price low to high</option>
+{#              <option value=2>Price high to low</option>#}
+{#              <option value=3>Size low to high</option>#}
+{#              <option value=4>Size high to low</option>#}
+              <option value=5 {% if sort=='5' %} selected {% endif %}>Distance low to high </option>
+{#              <option value=6>Distance high to low</option>#}
+            </select>
+
+            <select name="type" class="form-control mr-sm-2">
+              <option value="">Select listing types</option>
+              <option value="Condo" {% if type=='Condo' %} selected {% endif %}>Condos</option>
+              <option value="House" {% if type=='House' %} selected {% endif %}>Houses</option>
+              <option value="Apartment" {% if type=='Apartment' %} selected {% endif %}>Apartments</option>
+              <option value="Townhome" {% if type=='Townhome' %} selected {% endif %}>Townhomes</option>
+              <option value="Single room" {% if type=='Single room' %} selected {% endif %}>Single rooms</option>
+            </select>
+{#                <input type="text" placeholder="Min Price" name="price_low">#}
+{#                <input type="text" placeholder="Max Price" name="price_high">#}
+{#                <input type="text" placeholder="Min Size" name="size_low">#}
+{#                <input type="text" placeholder="Max Size" name="size_high">#}
+{#                <input type="text" placeholder="Min Distance" name="distance_low">#}
+{#                <input type="text" placeholder="Max Distance" name="distance_high">#}
+                    <input class="form-control mr-sm-2" type="text" size="35" placeholder="Search by listing name, listing type, description, or address" name="search_key" value = {{ key }}>
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            </li>
+        </ul>
+
+
+        <!-- Log in and signup -->
+
+        <ul class="navbar-nav ml-auto">
+            {% if current_user.user_id %}
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled">Hi {{ username }}!</a>
+                </li>
+
+                <form method="POST" action="/logout">
+                    <button class = "btn btn-outline-light my-2 my-sm-0">Logout</button>
+                </form>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">
+                        <i class="far fa-user"></i>
+
+                        <span>Sign Up</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span >Login</span> </a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>
+<!-- End Nav-->
+
+<!-- Body -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <a class="icon" href="/landlord_dashboard/view_listings">
+                <img src="../static/icons/All_listings.svg" alt="View All Listings">
+                View Listings
+            </a>
+            <br>
+        </div>
+        <div class="col-sm">
+            <a class="icon" href="/landlord_dashboard/view_orders">
+                <img src="../static/icons/view_all.svg" alt="View All Orders">
+                View Orders
+            </a>
+            <br>
+        </div>
+        <div class="col-sm">
+            <a class="icon" href="/landlord_dashboard/view_pending_request">
+                <img src="../static/icons/view_pending.svg" alt="View Pending">
+                View Requests
+            </a>
+            <br>
+        </div>
+        <div class="col-sm">
+            <a class="icon" href="/landlord_dashboard/view_msg">
+                <img src="../static/icons/view_messages.svg" alt="View Messages">
+                View Messages
+            </a>
+            <br>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
+{#<!DOCTYPE html>#}
+{#<html>#}
+{#<head>#}
+{#    <meta charset="utf-8">#}
+{#    <meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{#    <meta name="description" content="">#}
+{#    <meta name="author" content="">#}
+{##}
+{#    <title>Renter Dashboard</title>#}
+{##}
+{#    <!-- Custom fonts for this template-->#}
+{#    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">#}
+{#    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">#}
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>#}
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>#}
+{#    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>#}
+{#    <!-- Custom styles for this template-->#}
+{#    <link href="../static/home.css" rel="stylesheet">#}
+{##}
+{#</head>#}
+{##}
+{#<body>#}
+{#<div class="row">#}
+{#    <div class="mx-auto order-0">#}
+{#        <disclaimer style="text-align:center;">SFSU Software Engineering Project CSC 648-848, Spring 2019. For Demonstration Only</disclaimer>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{##}
+{#{% if current_user.user_id %}#}
+{#    Hi {{ username }}!#}
+{#    <form method="POST" action="/logout">#}
+{#        <button>logout</button>#}
+{#    </form>#}
+{#{% endif %}#}
+{##}
+{#<!-- Navigation -->#}
+{#<nav class="navbar navbar-expand-md navbar-dark bg-dark">#}
+{#    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">#}
+{#        <ul class="navbar-nav mr-auto">#}
+{#            <li class="nav-item">#}
+{#                <a class="nav-link" href="/home_search_results"">#}
+{#                <span>Rent</span></a>#}
+{#            </li>#}
+{#            <li class="nav-item">#}
+{#                <a class="nav-link" href="/renter_dashboard/add_a_new_listing">#}
+{#                    <span>Post</span></a>#}
+{#            </li>#}
+{#            <li class="nav-item active">#}
+{#                <a class="nav-link" href="/customer_dashboard">#}
+{#                    <span>My Profile</span></a>#}
+{#            </li>#}
+{#            <li class="nav-item">#}
+{#                <a class="nav-link" href="/about">#}
+{#                    <span>About Us</span></a>#}
+{#            </li>#}
+{#        </ul>#}
+{#    </div>#}
+{#    <div class="mx-auto order-0">#}
+{#        <a class="navbar-brand mx-auto" href="/">LiveGator</a>#}
+{#        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">#}
+{#            <span class="navbar-toggler-icon"></span>#}
+{#        </button>#}
+{#    </div>#}
+{#    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">#}
+{#        <ul class="navbar-nav ml-auto">#}
+{#            <li class="nav-item">#}
+{#                <a class="nav-link" href="/signup">#}
+{#                    <i class="far fa-user"></i>#}
+{##}
+{#                    <span>Sign Up</span> </a>#}
+{#            </li>#}
+{#            <li class="nav-item">#}
+{#                <a class="nav-link" href="/Log In">#}
+{#                    <i class="fas fa-sign-in-alt"></i>#}
+{#                    <span >Login</span> </a>#}
+{#            </li>#}
+{#        </ul>#}
+{#    </div>#}
+{#</nav>#}
+{##}
+{#<div class="container-fluid">#}
+{#    <div class="card text-center">#}
+{#        <div class="card-header">#}
+{#            <ul class="nav nav-tabs card-header-tabs">#}
+{#                <li class="nav-item active">#}
+{#                    <a class="nav-link" href="#">Add Listing</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">View All</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">Requests</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">Orders</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">Messages</a>#}
+{#                </li>#}
+{#            </ul>#}
+{#        </div>#}
+{#        <div class="card-body">#}
+{#            <div class="embed-responsive embed-responsive-4by3">#}
+{#              <iframe class="embed-responsive-item" src="/renter_dashboard/add_a_new_listing"></iframe>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#</body>#}
+{#</html>#}

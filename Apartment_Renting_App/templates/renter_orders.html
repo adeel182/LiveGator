@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Renter orders</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../static/index.css" rel="stylesheet">
+</head>
+<body>
+<disclaimer class="text-center" >SFSU Software Engineering Project CSC 648-848, Spring 2019. For Demonstration Only</disclaimer>
+
+
+   <!-- Nav -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">LiveGator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/landlord_dashboard/add_a_new_listing">
+                    <span>Post</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/customer_dashboard">
+                    <span>My Profile</span></a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">
+                    <span>About Us</span></a>
+            </li>
+            <div class="mx-auto">
+                <form class="form-inline my-2 my-lg-0 " method="GET" action = "/search" >
+                                <select name="sort" class="form-control mr-sm-2">
+              <option value=0 {% if sort=='0' %} selected {% endif %}>Newly added first</option>
+              <option value=1 {% if sort=='1' %} selected {% endif %}>Price low to high</option>
+{#              <option value=2>Price high to low</option>#}
+{#              <option value=3>Size low to high</option>#}
+{#              <option value=4>Size high to low</option>#}
+              <option value=5 {% if sort=='5' %} selected {% endif %}>Distance low to high </option>
+{#              <option value=6>Distance high to low</option>#}
+            </select>
+
+            <select name="type" class="form-control mr-sm-2">
+              <option value="">All Categories</option>
+              <option value="Condo" {% if type=='Condo' %} selected {% endif %}>Condos</option>
+              <option value="House" {% if type=='House' %} selected {% endif %}>Houses</option>
+              <option value="Apartment" {% if type=='Apartment' %} selected {% endif %}>Apartments</option>
+              <option value="Townhome" {% if type=='Townhome' %} selected {% endif %}>Townhomes</option>
+              <option value="Single room" {% if type=='Single room' %} selected {% endif %}>Single rooms</option>
+            </select>
+{#                <input type="text" placeholder="Min Price" name="price_low">#}
+{#                <input type="text" placeholder="Max Price" name="price_high">#}
+{#                <input type="text" placeholder="Min Size" name="size_low">#}
+{#                <input type="text" placeholder="Max Size" name="size_high">#}
+{#                <input type="text" placeholder="Min Distance" name="distance_low">#}
+{#                <input type="text" placeholder="Max Distance" name="distance_high">#}
+                    <input class="form-control mr-sm-2" type="text" size="35" placeholder="Search by listing name, listing type, description, or address" name="search_key" value = {{ key }}>
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            </li>
+        </ul>
+
+
+        <!-- Log in and signup -->
+
+        <ul class="navbar-nav ml-auto">
+            {% if current_user.user_id %}
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled">Hi {{ username }}!</a>
+                </li>
+
+                <form method="POST" action="/logout">
+                    <button class = "btn btn-outline-light my-2 my-sm-0">Logout</button>
+                </form>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">
+                        <i class="far fa-user"></i>
+
+                        <span>Sign Up</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span >Login</span> </a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>
+
+
+
+    <!-- Renting Table -->
+      <div class="card shadow mb-4 align-items-center">
+        <div class="py-3">
+          <h6 class="font-weight-bold text-primary text-center">All Orders</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered fixed_header" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Listing</th>
+                  <th>Customer</th>
+                  <th>Landlord</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in data %}
+                <tr>
+                  <td><a href='/all_listings/{{ item.house_id}}'> {{item.house_name}} </a></td>
+                  <td>{{item.customer_username}}</td>
+                  <td>{{item.landlord_username}}</td>
+                  <td>{{item.create_date}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    <!-- Footer -->
+      <footer class="sticky-footer bg-white footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; LiveGator 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+</body>
+</html>

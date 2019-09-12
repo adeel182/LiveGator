@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>LiveGator</title>
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template-->
+    <link href="../static/index.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+<disclaimer style="text-align:center" >SFSU Software Engineering Project CSC 648-848, Spring 2019. For Demonstration Only</disclaimer>
+
+<!-- Nav -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">LiveGator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            {% if role==2 %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/approve_new_listing">
+                        <span>New listings to be approved</span></a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/landlord_dashboard/add_a_new_listing">
+                        <span>Post</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/customer_dashboard">
+                        <span>My Profile</span></a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">
+                        <span>About Us</span></a>
+                </li>
+            {% endif %}
+            <div class="mx-auto">
+                <form class="form-inline my-2 my-lg-0 " method="GET" action = "/search" >
+                    <select name="sort" class="form-control mr-sm-2">
+                        <option value=0 {% if sort=='0' %} selected {% endif %}>Newly added first</option>
+                        <option value=1 {% if sort=='1' %} selected {% endif %}>Price low to high</option>
+                        <option value=5 {% if sort=='5' %} selected {% endif %}>Distance low to high </option>
+
+                    </select>
+
+                    <select name="type" class="form-control mr-sm-2">
+                        <option value="">All Categories</option>
+                        <option value="Condo" {% if type=='Condo' %} selected {% endif %}>Condos</option>
+                        <option value="House" {% if type=='House' %} selected {% endif %}>Houses</option>
+                        <option value="Apartment" {% if type=='Apartment' %} selected {% endif %}>Apartments</option>
+                        <option value="Townhome" {% if type=='Townhome' %} selected {% endif %}>Townhomes</option>
+                        <option value="Single room" {% if type=='Single room' %} selected {% endif %}>Single rooms</option>
+                    </select>
+                    <input class="form-control mr-sm-2" type="text" size="35" placeholder="Search by listing name, listing type, description, or address" name="search_key" value = "{{ key }}">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            </li>
+        </ul>
+
+        <!-- Log in and signup -->
+
+        <ul class="navbar-nav ml-auto">
+            {% if current_user.user_id %}
+                <li class="nav-item disabled">
+                    <a class="nav-link disabled">Hi {{ username }}!</a>
+                </li>
+
+                <form method="POST" action="/logout">
+                    <button class = "btn btn-outline-light my-2 my-sm-0">Logout</button>
+                </form>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">
+                        <i class="far fa-user"></i>
+
+                        <span>Sign Up</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span >Login</span> </a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</nav>
+
+
+<p>Displaying 1-{{ data|length }} of {{ data|length }} results</p>
+{% for item in data %}
+    <ul>
+        <div>
+            <div class="container">
+                <div class="card">
+                    <div class="col-md-2"></div>
+                </div>
+                <div class="row listings">
+                    <div class="col-md-12">
+                        <div class="media">
+                            <a href='/all_listings/{{ item.house_id}}' class = "stretched-link">
+                                <img class="card-img img-responsive" style="width: 200px; height: 200px;"  src="{{ url_for('static', filename=item.image_url) }}"/>
+
+                                <div class="media-body mx-3">
+                                    <a href='/all_listings/{{ item.house_id}}' class="media-heading">{{item.house_name}}</a>
+                                    <div class="media-heading">{{item.number}}  {{item.street}}  {{item.city}} {{item.state}} {{item.zipcode}}<div>
+                                        <div class="meta"> ${{item.price}} • {{ item.type }} • {{item.size}} sq. ft. </div>
+                                        <p> Layout: {{item.bedroom_count}} bedroom(s), {{item.bathroom_count}} bathroom(s), {{item.parking_count}} parking spot(s) </p>
+                                        <p> Distance from Campus: {{item.distance}} mi.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ul>
+    </center>
+    </li>
+{% endfor %}
+
+</center>
+<!-- js stuff -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

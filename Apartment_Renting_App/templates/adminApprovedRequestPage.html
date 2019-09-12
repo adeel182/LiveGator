@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>LiveGator</title>
+
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- Custom styles for this template-->
+    <link href="../static/css.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+<disclaimer style="text-align:center" >SFSU Software Engineering Project CSC 648-848, Spring 2019. For Demonstration Only</disclaimer>
+
+
+{% if current_user.user_id %}
+    Hi {{ username }}!
+    <form method="POST" action="/logout">
+        <button>logout</button>
+    </form>
+{% endif %}
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-dark ">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/search_results">
+                    <span>Rent</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/landlord_dashboard/add_a_new_listing">
+                    <span>Post</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/customer_dashboard">
+                    <span>My Profile</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">
+                    <span>About Us</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="/">LiveGator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/signup">
+                    <i class="far fa-user"></i>
+
+                    <span>Sign Up</span> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span >Login</span> </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Total Pending (2)</h1>
+          </div>
+
+          <!-- Card Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Card Example 1</h6>
+            </div>
+            <div class="card-body">
+              <div class="card-group">
+                <div class="card bg-primary">
+                  <p class="card-text">name: </p>
+                  <p class="card-text">Date posted: </p>
+                  <p class="card-text">Summary: </p>
+                  <p class="card-text">Price: </p>
+                </div>
+                <div class="card bg-warning">
+                  <p class="card-text">pictures here</p>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+         <!-- Card Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Card Example 2</h6>
+            </div>
+            <div class="card-body">
+              <div class="card-group">
+                <div class="card bg-primary">
+                  <p class="card-text">name: </p>
+                  <p class="card-text">Date posted: </p>
+                  <p class="card-text">Summary: </p>
+                  <p class="card-text">Price: </p>
+                </div>
+                <div class="card bg-warning">
+                  <p class="card-text">pictures here</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /.container-fluid -->
+
+          <!-- Card Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Card Example 3</h6>
+            </div>
+            <div class="card-body">
+              <div class="card-group">
+                <div class="card bg-primary">
+                  <p class="card-text">name: </p>
+                  <p class="card-text">Date posted: </p>
+                  <p class="card-text">Summary: </p>
+                  <p class="card-text">Price: </p>
+                </div>
+                <div class="card bg-warning">
+                  <p class="card-text">pictures here</p>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; LiveGator 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
