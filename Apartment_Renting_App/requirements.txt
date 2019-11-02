@@ -19,4 +19,4 @@ pytz==2018.9
 six==1.12.0
 SQLAlchemy==0.8.2
 unicode==2.7
-Werkzeug==0.14.1
+Werkzeug==0.15.3
