@@ -10,7 +10,7 @@ flask-restful-swagger==0.20.1
 Flask-SQLAlchemy==1.0
 Flask-Uploads==0.2.1
 itsdangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 mysql-connector-python==8.0.15
 protobuf==3.6.1
